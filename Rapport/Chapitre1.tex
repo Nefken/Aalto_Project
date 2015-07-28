@@ -1,0 +1,39 @@
+\chapter{Theory}
+ \label{Chap1}
+ 
+    The first thing to do before starting anything is to understand the goal of the project. For that, it is important to study the behaviour of the structures we want to realize and the physics and quantum phenomemon that can occur. In this chapter we will sum up the litterature study that we have done to understand the theory behind the experiments.
+        
+        \section{Superconductivity}
+            During the research project that Grenoble INP \textsc{Phelma} gave me the opportunity to realize during the first year of my master degree, I have studied superconductors with my group which make this study a bit easier for me since I am familiar with some of the concept mentionned here. Let's start with the basics. 
+            Superconductivity is a state of matter which occur mostly at low temperature for several materials. It is a state where the material have an absolute zero resistance, so that current can run without energy losses. It is also a state where the material totally excludes magnetic field and becomes perfectly diamagnetic. These two major properties have a quantum explanation which is the Bardeen-Schrieffer-Cooper (BCS) Theory. Even of this theory does not make unanimity among physicist, since it does not explain everything, it is the most famous at the moment. The qualitative aspect of this theory is quite simple whereas the quantitative involves the second quantization woth            
+            Les supraconducteurs sont des matériaux sans résistance électrique et qui excluent le champ magnétique. Ce phénomène n'est observable, pour la plupart des matériaux (en particulier les métaux) qu'à basse température. Il provient de l'appariement des électrons libres du metal en paires de Cooper. Ces paires sont des quasiparticules issues de l'intéraction entre les électrons et la matrice ionique qui les entoure, et en particulier les phonons. Les paires de Cooper, même si composées d'électrons ne sont plus des fermions mais des bosons, qui respectent la statistique de Bose-Enstein elles forment ainsi un condensat au sein du matériau. Elles modifient également la densité d'états électroniques. Celle-ci voit apparaitre un un gap, appelé gap supraconducteur entouré de deux pics en théorie infinis à 0K.
+            
+        \section{Jonctions NISIN}
+        Dans le cadre des jonctions Josephson, il ne faut pas considérer la supra "bulk" mais il faut prendre en compte la dimension des objets et la quantification induite par la réduction de la dimension. On parlera ainsi de diamant de Coulomb et d'états liés d'Andreev. \cite{NIS_thermo}
+        
+        \section{Nanofils semiconducteurs}
+        La physique des nanofils est encore différente de celle des jonctions précédentes. En effet, le projet est basé sur l'utilisation de nanofils d'InAs, qui est semiconducteur. Cependant, celui-ci l'équipe de Copenhague le fait croître epitaxialement à de l'aluminium. Il subit ainsi une supraconductivité de proximité induite par celui-ci. C'est ce phénomène que l'on se propose d'étudier.
+        
+        \section{Pompage électronique}
+            A partir des coulomb diamonds, haute fréquence, observation d'un courant d'un seul électron
+            \begin{figure}
+                \centering
+                \begin{tikzpicture}[scale=1.2]
+                \draw [->] (0,0)--(10,0);
+                \draw (10,0) node[below] {$V_{g}$};
+                \draw [->] (0,-3)--(0,3);
+                \draw (0,3)node[left]{$V_{bias}$};
+                \draw (0,1)--(1,2)--(2,1)--(3,2)--(4,1)--(5,2)--(6,1)--(7,2)--(8,1)--(9,2);
+                \draw (0,-1)--(1,-2)--(2,-1)--(3,-2)--(4,-1)--(5,-2)--(6,-1)--(7,-2)--(8,-1)--(9,-2);
+                \draw [dashed] (0,-1)--(2,1)--(4,-1)--(6,1)--(8,-1);
+                \draw [dashed] (0,1)--(2,-1)--(4,1)--(6,-1)--(8,1);
+                
+                \draw (3,1)node{$n=0$};
+                \draw (5,1)node{$n=1$};
+                \draw (7,1)node{$n=2$};
+                \draw (1,1)node{$n=-1$};
+                \end{tikzpicture}
+                
+            \caption{Blocage de coulomb dans un supraconducteur et principe du pompage d'électrons}
+            \end{figure}
+            

@@ -1,0 +1,488 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[french]{babel}
+\usepackage[top=3cm,bottom=3cm,left=3.5cm,right=3.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage[siunitx,european]{circuitikz}
+\usepackage{etoolbox}
+\usepackage{chemfig}
+\usepackage{textcomp}
+\usepackage{hyperref}
+
+\begin{document}
+
+\AtBeginEnvironment{tikzpicture}{\shorthandoff{;:?!}}
+
+\begin{titlepage}
+\vspace*{\stretch{3}}
+
+    \begin{center}
+        {\LARGE \textsc{Rapport de Stage Industriel}}\\
+        \vspace{0.2cm}
+        
+        {\Huge \textsc{Caractérisation de nanofils semiconducteurs (InAs) par pompage d'électrons}}\\
+        
+        \vspace{1cm}
+        
+        {\LARGE Nicolas \textsc{Paillet}}\\
+        \vspace{0.5cm}
+        
+        \textsc{Filière} PNS 2014-2015\\
+        
+        \vspace{1cm}
+        
+    Stage réalisé en collaboration avec 
+    \vspace{0.7cm}
+    
+         \hspace*{\stretch{0.7}} \textsc{Grenoble INP Phelma}\hfill \textsc{Aalto School of Science}\hspace*{\stretch{0.6}}
+         \vspace{1cm}
+         
+        \hspace*{\stretch{0.7}}
+        \includegraphics[width=35mm]{logo_phelma.png}
+        \hfill
+        \includegraphics[width=25mm]{logo_aalto.png}
+        \hspace*{\stretch{0.7}}
+        
+    \vspace{1cm}
+    Au sein du PICO \textsc{Group}
+    \vspace{0.5cm}
+    
+    \includegraphics[width=25mm]{logopico.png}
+    \vspace{1cm}
+    
+    Sous la direction du Professeur Jukka \textsc{Pekola}
+       \end{center} 
+    \vspace*{\stretch{3}}
+\end{titlepage}
+\setcounter{tocdepth}{1}
+\tableofcontents
+\newpage
+
+\begin{center}
+\vspace*{\stretch{2}}
+{\Large \textsc{Remerciements}}
+\vspace{0.5cm}
+
+\textit{Je tiens tout d'abord à remercier le Professeur Jukka Pekola pour avoir accepté ma demande d'intégrer son équipe. Bien sûr cela n'aurait pas été possible sans l'aide du Docteur Clemens Winckelmann qui m'a fournit ses coordonées. De plus, je souhaite remercier l'ensemble du PICO Group pour m'avoir si bien accueilli tout au long de ce séjour, et plus particulièrement le Docteur Mathieu Taupin, qui m'a intégré au sein de son projet et m'a fourni nombres de conseils en salle blanche. Enfin, je souhaite remercier Grenoble-INP PHELMA qui m'a donné l'opportunité de réaliser ce stage.}
+\vspace*{\stretch{9}}
+\end{center}
+\newpage
+
+\section*{Le PICO Group}
+
+Le PICO Group est une équipe de recherche qui exerce sous la tutelle de l'Université d'Aalto. Elle possède ses locaux au sein de la plateforme \textsc{Micronova} situé sur le campus d'Aalto à Espoo (Finlande) : Otaniemi, qui regroupe l'ensemble des activités scientifiques de l'Université. L'équipe est actuellement composé de dix-neuf personnes, dont le Professeur Jukka \textsc{Pekola}, qui dirige le groupe et le Docteur Matthias \textsc{Meschke} qui est responsable des appareils. L'équipe est ensuite composée de cinq docteurs, sept diplomés actuellement en thèse ainsi que cinq étudiants accueillis pour l'été. 
+
+Les sujets de recherches étudiés par le groupe sont divers mais se basent tous sur les propriétés des supraconducteurs. Les principaux sujets d'études sont liés à la thermodynamique quantique et au transport d'électrons au sein de structures quantiques. Ainsi, certains chercheurs sont focalisés sur une dimension théorique : statistiques d'échanges thermiques entre deux résistances\cite{statistics}, par exemple, tandis que d'autres abordent davantage une partie pratique : réalisation de structures afin d'en déterminer les propriétés, refroidissement d'électrons... De plus, le groupe est en étroite collaboration avec le centre de métrologie car l'un des principaux projet en cours est la redéfinition de l'Ampère\cite{ampere}, unité de mesure du courant électrique. Pour pouvoir couvrir l'ensemble de ces sujets, l'équipe a besoin de certains appareils.
+
+Le groupe est également appelé Low Temperature Laboratory, car une grande partie des expériences réalisées sont faites à basse température. Ainsi, le groupe possède trois cryostats à dilution He$_3$/He$_4$ et un cryostat à dilution sèche (BlueFors). De plus, le bâtiment possède sa propre salle blanche afin de fabriquer les structures à étudier, avec notamment des Electron Beam Lithographier (EBL), Evaporateurs, Scanning Electron Microscope (SEM), Atomic Layer Deposition (ALD)...
+
+L'université et le batiment fournissent ainsi toutes les ressources nécessaires au recherches effectuées au sein du groupe.
+
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+Nanofil... un terme très à la mode dans le milieu scientifique de la recherche à l'heure actuelle. Un nanofil est une structure de taille nanométrique et généralement de forme cylindrique ou du moins prismatique. Les propriétés qui découlent de cette forme particulière et de cette taille caractéristique trouvent majoritairement leur origine dans la théorie quantique, c'est pour cela que ces structures intéressent tant. Elle permettent de mieux comprendre certains phénomènes quantiques mal compris, et même d'utiliser les propriétés quantiques de la matière ou obtenir des fonctions électroniques, notamment. Le recherche sur les nanofils aura sans doute une application dans le monde pratique dans quelques années voire décennies mais pour cela elle doit davantage progresser. C'est ainsi que nous nous proposons d'étudier des propriétés de supraconduction induite au sein de nanofils semiconducteurs.
+
+Une équipe de Copenhague a mis au point une méthode de croissance de nanofils d'InAs/Al par épitaxie\cite{epitaxie} (conservation des directions cristallographiques). L'InAs est un matériau semiconducteur alors que l'Aluminium est supraconducteur à basse température ($T_c=1.2K$), des phénomènes de supraconductivité de proximité induite vont intervenir au sein du nanofil. C'est ce phénomène que nous souhaiterions observer pour vérifier s'il concorde avec la théorie, qu'il faudra préalablement étudier et comprendre (Chapitre \ref{Chap1}). Ainsi, l'équipe a également réalisé des structures en intégrant ces nanofils, cependant ces structures possèdent des éléments parasites qui ne permettent pas de caractériser correctement les nanofils : des quantum dots apparaissent aux extrémités (Voir Annexe Fig.\ref{StructureCopenhague}). Pour annuler leurs effets, il est possible de polariser ces zones en appliquant une forte tension via une capacité (Voir Annexe Fig.\ref{StructureCopenhagueDéfauts}). Cependant, il est impossible de savoir dans quelle mesure ces capacités se couplent à celles permettant les vraies mesures. Pour une meilleure caractérisation, il faudrait parvenir à isoler les nanofils et à les intégrer à une structure propre. Le but de ce projet est alors de mettre en place un processus de salle blanche visant à intégrer les nanofils réalisés par l'équipe du Dr. Krogstrup puis de les caractériser par pompage d'électrons.
+
+Cependant, il est totalement impossible de se lancer directement dans l'intégration des nanofils sans avoir préalablement établi un processus potentiellement fonctionnel. Pour cela, il nous faudra une bonne connaissance des appareils disponibles en salle blanche, pour distinguer ce qui est réalisable de ce qui ne l'est pas (Chapitre \ref{Chap2}).
+
+De plus, le fait d'avoir un processus viable ne suffit pas, il faut connaître les différents paramètres qui entrent en jeu pour la réalisation de la structure. Pour cela, il est impératif de se livrer à un certain nombre de tests sur des structures plus simples notamment pour valider l'efficacité des certaines étapes en fonction des paramètes appliqués. Ainsi, la réalisation des tests permettra de mieux connaître les appareils de salle blanche, de nous familiariser avec ceux-ci, mais constituera aussi une base solide sur laquelle s'appuyer pour commencer l'intégration des nanofils car elle fournira des informations importantes concernant les paramètres à utiliser dans chaque situation (Chapitre \ref{Chap3}).
+
+Munis de ces outils, nous pouvons nous consacrer au but principal de ce projet à savoir l'intégration, puis la caractérisation des nanofils. Une fois qu'au vu des différents tests réalisés, le processus de fabrication semble opérationnel, il nous est possible de le mettre en place. Cependant, comme les strucures sont différentes, il faut s'attendre à certains ajustements des paramètres pour obtenir ce que nous souhaitons. Ainsi, une fois les structures réalisées, nous pouvons commencer la caractérisation et les mesures (Chapitre \ref{Chap4}).
+
+Pour finir, la recherche ne s'arrête pas ici, il reste encore beaucoup à faire, en fonction des résultats obtenus et de leux validité vis-à-vis de la théorie, il est possible d'aller plus loin et d'ouvrir le sujet à d'autres perspectives. L'étude des phénomènes de Fermions de Majorana au sein des interfaces de ces nanofils en est un par exemple. Le recherche n'est pas figée, et il est toujours possible d'aller plus loin et d'ouvrir la porte à des applications pratique et/ou à de la recherche plus fondamentale (Chapitre \ref{Chap5}).
+
+
+% Tout d'abord, en arrivant, les nanofils auront subit un voyage et seront oxydés. Il faut ainsi un moyen de retirer l'oxyde sans altérer le nanofil. 
+
+%Ce projet s'intitule Caractérisation de nanofils semiconducteurs (InAs) par pompage d'électrons. Il prend place au sein de la recherche actuelle sur les nanofils, à mi-chemin entre l'élaboration de nanostructures et l'étude théorique des phénomènes physiques qui interviennent, il couvre un large panel de la physique des laboratoires d'aujourd'hui : de la conception de structures à la caractérisation en basse température, en passant par la fabrication en salle blanche, il s'inscrit dans mon projet professionnel en tant que complément pratique par la manipulation d'appareils et le travail en salle blanche mais aussi théorique sur l'étude de matériaux différents de ceux étudiés en cours. Une équipe de Copenhague a mis au point une méthode de fabrication de nanofils d'InAs par épitaxie. Notre but est de caractériser leurs échantillons. Le but de ce projet sera donc de mettre en place un process de salle blanche permettant de caractériser les nanofils : les intégrer à une structure permettant des mesures. Pour cela, il faut comprendre les différents dispositifs de salle blanche. De plus, avant de pouvoir complètement caractériser les nanofils, il faudra réaliser de nombreux tests sur des échantillons différents afin de mettre en place le process flow à ce dont nous avons besoin puis des tests sur des nanofils pour l'ajuster.
+
+ 
+ \chapter{Bibliographie}
+ \label{Chap1}
+    Dans cette partie nous présenterons un résumé de la recherche bibliographique effectuée.
+        \section{Supraconducteurs}
+            Dans le cadre du projet de recherche effectué en 2$^{eme}$ année d'école d'ingénieur à Grenoble-INP PHELMA, j'ai travaillé avec mon groupe sur les supraconducteurs, ce qui m'a permis de mieux comprendre d'emblée le sujet. Ce qui suit est donc un résumé succint de la théorie qui décrit les supraconducteurs.
+            
+            Les supraconducteurs sont des matériaux sans résistance électrique et qui excluent le champ magnétique. Ce phénomène n'est observable, pour la plupart des matériaux (en particulier les métaux) qu'à basse température. Il provient de l'appariement des électrons libre du metal en paires de Cooper. Ces paires sont des quasiparticules issues de l'intéraction entre les électrons et la matrice ionique qui les entoure, et en particulier les phonons. Les paires de Cooper, même si composées d'électrons ne sont plus de fermions mais des bosons, qui respectent la statistique de Bose-Enstein elles forment ainsi un condensat au sein du matériau. Elles modifient également la densité d'états électronique. Celle-ci voit apparaitre un un gap, appelé gap supraconducteur entouré de deux pics de Dirac.
+            
+        \section{Jonctions NISIN}
+        Dans le cadre des jonctions Josephson, il ne faut pas considérer la supra "bulk" mais il faut prendre en compte la dimension des objets et la quantification induite par la réduction de la dimension. On parlera ainsi de diamant de Coulomb et d'états liés d'Andreev.
+        
+        \section{Nanofils semiconducteurs}
+        La physique des nanofils est encore différente de celle des jonctions précédentes. En effet, le projet est basé sur l'utilisation de nanofils d'InAs, qui est semiconducteur. Cependant, celui-ci l'équipe de Copenhague le fait croître epitaxialement à de l'aluminium. Il subit ainsi une supraconductivité de proximité induite par celui-ci. C'est ce phénomène que l'on se propose d'étudier.
+        
+        \section{Pompage électronique}
+            A partir des coulomb diamonds, haute fréquence, observation d'un courant d'un seul électron
+            \begin{figure}
+                \centering
+                \begin{tikzpicture}[scale=1.2]
+                \draw [->] (0,0)--(10,0);
+                \draw (10,0) node[below] {$V_{g}$};
+                \draw [->] (0,-3)--(0,3);
+                \draw (0,3)node[left]{$V_{bias}$};
+                \draw (0,1)--(1,2)--(2,1)--(3,2)--(4,1)--(5,2)--(6,1)--(7,2)--(8,1)--(9,2);
+                \draw (0,-1)--(1,-2)--(2,-1)--(3,-2)--(4,-1)--(5,-2)--(6,-1)--(7,-2)--(8,-1)--(9,-2);
+                \draw [dashed] (0,-1)--(2,1)--(4,-1)--(6,1)--(8,-1);
+                \draw [dashed] (0,1)--(2,-1)--(4,1)--(6,-1)--(8,1);
+                
+                \draw (3,1)node{$n=0$};
+                \draw (5,1)node{$n=1$};
+                \draw (7,1)node{$n=2$};
+                \draw (1,1)node{$n=-1$};
+                \end{tikzpicture}
+                
+            \caption{Blocage de coulomb dans un supraconducteur et principe du pompage d'électrons}
+            \end{figure}
+                    
+\chapter{Techniques de fabrication de structures en salle blanche}
+\label{Chap2}
+    Pour réaliser la structure que l'on souhaite à partir des nanofils, il va falloir utiliser différentes méthodes de salle blanche. De plus, avant même de commencer à travailler sur de vrais échantillon, il est important de réaliser des tests avec des structures de test, pour savoir si le process que l'on veut mettre en place est viable.
+    
+    \section{Résines}
+    Point central de la fabrication, les résines permettent de créer le pattern que l'on souhaite obtenir sur la structure finale.
+        \subsection{De la théorie...}
+            Les résines sont composées de matériaux polymères : le Polymethyl Methacrilate (PMMA) (Fig. \ref{PMMA}) et copolymères Methyl Methacrilate (MMA). 
+            
+            \begin{figure}
+            \centering
+            \chemfig{CH_3-[:270]C(=[:180]CH_2)(-[:270]C(=[:0]O)(-[:270]O(-[:315]CH_3)))}
+            \caption{Structure chimique du MMA, le monomère qui compose le PMMA}
+            \label{PMMA}
+            \end{figure}
+            
+            Elles sont sensibles aux électrons : Envoyer un faisceau d'électrons impliquera des modification structurelles. Pour le PMMA par exemple, le faisceau d'électrons brise le polymère en petits morceaux qui pourront être dissous par du Methyl IsoButyl Ketone (MIBK) (Fig. \ref{MIBK}). 
+            
+            \begin{figure}
+                \centering
+                \chemfig{-[:-30](-[:30]-[:-30](-[:30])(=[:270]O))(-[:270])}
+                \caption{Structure chimique du MethylIsoButylKetone (MIBK)}
+                \label{MIBK}
+            \end{figure}
+            
+        \subsection{...A la pratique}
+            En pratique, nous utilisons deux types de résines différentes : D'abord une couche, relativement épaisse de MMA, puis une couche fine de PMMA. Les résines sont déposées à la surface du wafer de Silicium celui-ci est ensuite placé sur un  spinner, qui va le faire tourner et uniformiser l'épaisseur des couches de résine. On se retrouve alors avec ce type de vue en coupe (Fig. \ref{resine}). Le wafer est ensuite exposé à un faisceau d'électrons dans l'Electron Beam Lithographier.
+            
+            \begin{figure}
+                \centering 
+                \begin{tikzpicture}
+                    \draw (0,0)--(10,0);
+                    \draw (5,-0.5) node{Wafer $Si/SiO_2$};
+                    \draw (0,2)--(10,2);
+                    \draw (5,1)node{MMA};
+                    \draw (0,2.5)--(10,2.5);
+                    \draw (5,2.25) node{PMMA};
+                \end{tikzpicture}
+                \caption{Vue en coupe du wafer après dépot de résine}
+                \label{resine}
+            \end{figure}
+            
+    \section{EBL et développement}
+        \subsection{Fonctionnement de l'EBL}
+            L'Electron Beam Lithographier est un appareil qui sert à dessiner les pattern au sein de la résine, il permet ainsi de sélectionner les zones où il y aura de la matière par la suite. Il consiste simplement en l'envoi d'un faisceau d'électrons sur le wafer. Il détruit certaines liaisons au sein de la résine, permettant ainsi l'attaque de celle-ci par les produits chimiques utilisés lors du developpement. Son schéma fonctionnel est représenté en Fig. \ref{EBLschema}. Il consiste principalement en la focalisation d'un faisceau d'électrons sur des zones précises. La résolution est ajustable pour chaque partie du pattern. En effet, certaines parties (pad de soudure par exemple) ne nécessitent pas d'une grande précision, et avoir un faisceau précis prend plus de temps. Ainsi, nous utiliserons de bonnes résolutions uniquement pour les jonctions que quelques $\mu m$. Un autre paramètre ajustable est la dose d'électrons envoyée qui va influer sur la qualité des undercuts notamment. Bien sûr, il faut qu'elle soit en adéquation avec la taille des structures que l'on veut réaliser. En effet, utiliser une dose importante sur un pattern petit peut nuire à la qualité globale de la structure. L'EBL envoie un faisceau d'électrons sur la résine. Ces électrons possèdent une energie trop importante pour interagir avec les liaisons, cependant lorsqu'ils entrent en contact avec de la matière, ils provoquent la formation d'életrons secondaires qui, eux, possèdent l'energie adéquate pour briser les liaisons au sein du polymère. Si les électrons primaires possèdent une si haute énergie, c'est pour pénétrer profondémment au sein du polymère et ainsi multiplier la formation d'électrons secondaires qui vont fragiliser la résine.
+            
+            \begin{figure}
+                    \centering
+                    \begin{tikzpicture}
+                    \draw (4.5,20)--(4.5,19)--(4.8,19);
+                    \draw (5.2,19)--(5.5,19)--(5.5,20);
+                    \draw [<-] (5.7,19.5)--(8,19.5);
+                    \draw (8,19.5)node[right]{Source d'électrons};
+                    
+                    \draw (3.5,18)--(4.5,18)--(4.8,18.8);
+                    \draw (6.5,18)--(5.5,18)--(5.2,18.8);
+                    \draw [<-] (6.7,18.4)--(8,18.4);
+                    \draw (8,18.4)node[right]{Ouverture de dispersion};
+                    
+                    \draw [dotted] [domain=0:360] plot({1.5*cos(\x)+5},{0.4*sin(\x)+17)});
+                    \draw [<-] (6.8,17)--(8,17);
+                    \draw (8,17)node[right]{Lentille de réduction 1};
+                    
+                    \fill (4.7,16)--(4.7,15.5)--(4.3,15.5)--(4.3,16)--cycle;
+                    \fill (5.3,16)--(5.3,15.5)--(5.7,15.5)--(5.7,16)--cycle;
+                    \draw [<-] (6,15.75)--(8,15.75);
+                    \draw (8,15.75)node[right]{Masque};
+                    
+                    \draw [dotted] [domain=0:360] plot({1.5*cos(\x)+5},{0.4*sin(\x)+14)});
+                    \draw [<-] (6.8,14)--(8,14);
+                    \draw (8,14)node[right]{Lentille de réduction 2};
+                    
+                    \draw (3,13)--(4.5,13);
+                    \draw (7,13)--(5.5,13);
+                    \draw [<-] (7.3,13)--(8,13);
+                    \draw (8,13) node[right]{Arrêt d'ouverture du faisceau};
+                    
+                    \draw (3.5,12)--(4.2,12)--(4.2,11)--(3.5,11)--cycle;
+                    \draw (6.5,12)--(5.8,12)--(5.8,11)--(6.5,11)--cycle;
+                    \draw (3.5,10)--(4.2,10)--(4.2,9)--(3.5,9)--cycle;
+                    \draw (6.5,10)--(5.8,10)--(5.8,9)--(6.5,9)--cycle;
+                    \draw [<-](6.8,10.5)--(8,10.5);
+                    \draw (8,10.5)node[right]{Déflecteurs};
+                                                            
+                    \draw [dotted] [domain=0:360] plot({1.5*cos(\x)+5},{0.4*sin(\x)+8)});
+                    \draw [<-] (6.8,8)--(8,8);
+                    \draw (8,8)node[right]{Lentille de réduction 3};
+                    
+                    \fill (2,6)--(8,6)--(8,5.7)--(2,5.7)--cycle;
+                    \draw (8,5.85) node[right]{Wafer};
+                    
+                    \draw (5,19)--(4.5,17)--(5.4,14)--(4,8)--(5.1,6);
+                    \draw (5,19)--(5.5,17)--(4.6,14)--(6,8)--(4.9,6);
+                    \draw (5,19)--(4.7,17)--(5.2,14)--(4.5,8)--(5,6);
+                    \draw (5,19)--(5.3,17)--(4.8,14)--(5.5,8)--(5,6);
+                    \end{tikzpicture}
+                    \caption{Schéma fonctionnel simplifié de l'EBL}
+                    \label{EBLschema}
+            \end{figure}
+            
+            \begin{figure}
+                \centering
+                \includegraphics[width=250pt]{EBL.jpg}
+                \caption{Photographie de l'Electron Beam Lithographier de la Salle Blanche Nanofab}
+            \end{figure}
+            
+        \subsection{Tracé du pattern}
+            Le faisceau peut être controlé informatiquement, via logiciel, on créé notre pattern et on peut ainsi dessiner directement sur le wafer des pattern nanoscopiques. Le faisceu d'électrons altère la résine dans les zones souhaitées, comme le montre la vue en coupe en Fig. \ref{waferEBL}
+            
+            \begin{figure}
+                \centering
+                \begin{tikzpicture}
+                \draw (5,-0.5) node{Wafer $Si/SiO_2$};
+                \fill [color=gray!20] (3.82,0) arc(180:170:12)--++(2,0) arc (10:0:12)--cycle;
+                \draw (0,2)--(4,2);
+                \draw (6,2)--(10,2);
+                \draw (1.5,1) node{MMA};
+                \draw (8.5,1) node{MMA};
+                \draw (1.5,2.25) node{PMMA};
+                \draw (8.5,2.25) node{PMMA};
+                \fill [color=gray!30] (4,2)--(4,2.5)--(6,2.5)--(6,2)--cycle;
+                \draw (0,2.5)--(10,2.5);
+                \draw (5,2.25)node{{\tiny PMMA exposée}};
+                 \draw (0,0)--(10,0);
+                \draw (5,1)node{MMA exposée};
+                \end{tikzpicture}
+                \caption{Vue en coupe du wafer après passage dans l'EBL}
+                \label{waferEBL}
+            \end{figure}
+        \subsection{Développement}
+            Le développement consiste au retrait de la résine exposée à l'EBL. Réalisé par une succession de réactions chimiques, on perce tout d'abord le PMMA avant d'attaquer le MMA pour réaliser ce qu'on appelle des undercut, le MMA étant plus sensible, il est plus atteint et on forme un cône sous le PMMA où la structure prendra place. Les deux résines réagissent au MIBK, qui peut les dissoudre. En effet, en attendant suffisamment longtemps, la résine disparait complètement si elle reste dans la solution de MIBK. En revanche, la partie exposée au faisceau d'électrons est bien plus sensible. Les liaisons étant déjà fragilisées, il suffit de très peu de temps pour retirer la partie souhaitée. À ce moment, la résine de la zone exposée a disparu. Cependant, ce n'est pas suffisant, on souhaite créer une surface accessible /!\ A CHANGER plus grande pour déposer selon un angle précis. C'est le rôle du méthyl glycol. Ce dernier va attaquer selectivement le MMA, et créer ce qu'on appelle des undercuts : une partie du MMA sous le PMMA encore existant est rongée, ce qui crée un dôme sous la PMMA (Fig. \ref{Aprèsdvpt}).
+            \begin{figure}
+            \centering
+            \begin{tikzpicture}
+                \draw (0,0)--(10,0);
+                \draw (5,-0.5) node{Wafer $Si/SiO_2$};
+                \draw (2.33,0) arc(170:110:2.6)--(4,2.5)--(0,2.5);
+                \draw (7.67,0) arc(10:70:2.6)--(6,2.5)--(10,2.5);
+                \draw (0,2)--(4,2);
+                \draw (6,2)--(10,2);
+                \draw (1.5,1) node{MMA};
+                \draw (8.5,1) node{MMA};
+                \draw (1.5,2.25) node{PMMA};
+                \draw (8.5,2.25) node{PMMA};
+            
+            \end{tikzpicture} 
+            \caption{Vue en coupe après le développement}
+            \label{Aprèsdvpt}
+            \end{figure}
+    \section{Evaporateur}
+        \subsection{Fonctionnement de l'évaporateur}
+            L'évaporateur permet de déposer un fine couche uniforme de métal à l'intérieur des undercuts fraichement développées. Un filament est soumis à un fort courant et une forte tension, il émet des photons qui vont faire fondre le metal et en arracher des atomes. Ces atomes se dispersent dans la chambre, et comme le libre parcours moyen est grand, finissent par se déposer uniformément partout. Il y a des capteurs d'épaisseur permettant de fixer l'épaisseur que l'on souhaite atteindre. L'évaporateur possède une valve pour l'oxygène, cela permet d'oxyder es métaux si on souhaite réaliser des jonctions avec isolant par exemple. Il y a également une valve pour injecter de l'argon et réaliser ainsi un plasma au sein de la chambre. Ce plasma possède plusieurs utilités : simplifier le lift-off en fragilisant légèrement la résine. Nous l'avons principalement utilisé pour réaliser du plasma etching : le retrait de matière par plasma. Cela fait partie des tests réalisés en vue d'intégrer les nanofils à une structure permettant leur caractérisation.
+            
+            \begin{figure}
+                \centering
+                \includegraphics[width=350pt]{LISA.JPG}
+                \caption{Photographie de l'évaporateur LISA utilisé pour réaliser les structures}
+            \end{figure}
+        
+    \section{Lift-off et SEM}
+        \subsection{Le Lift-off : retrait de la résine}
+            Le métal s'est déposé partout suite à l'évaporation, cependant, dans la plupart des endroits, il est sur la résine, il nous suffit ainsi de retirer celle-ci pour avoir nos structures. C'est le rôle de l'acétone qui va dissoudre totalement la résine et ainsi décoller du wafer le métal déposé par évaporation en dehors des zones souhaitées, cette étape s'appelle lift-off.
+        \subsection{Fonctionnement du SEM}
+            On envoie un faisceau d'électrons, certains sont réfléchis, ça donne une image.
+            \begin{figure}
+                \centering
+                \includegraphics[width=350pt]{SEM.JPG}
+                \caption{Photographie du Scanning Electron Microscope utilisé pour observer les structures réalisées}
+            \end{figure}
+        \subsection{Observation d'échantillons}
+            On peut alors voir où il y a de la matière, et même, en fonction du contraste de quelle matière il s'agit. 
+            
+            \begin{figure}
+                \centering
+                \includegraphics[width=300pt]{SEMexemple.jpg}
+                \caption{Exemple d'une structure observée au SEM}
+                \label{SEMexemple}
+            \end{figure}
+
+\chapter{Phase de tests}
+\label{Chap3}
+Comme on veut réaliser quelque chose de nouveau et d'assez lourd à mettre en place, on veut d'abord savoir quels paramètres utiliser pour avoir ce que l'on souhaite. Pour cela, on réalise des tests sur des structures simples (NIS/NS) pour connaître l'effet des paramètres que l'on modifie.
+    \section{Procédure : Fabrication et mesures}
+        P
+    
+    
+    \section{Différents paramètres}
+    Il y a de nombreux parammètres à prendre en compte lors de la réalisation d'un dispositif en salle blanche (notamment certaines durées). Arrivé en cours, certains paramètres ont déjà été déterminés comme fonctionnels. Mais d'autres restent à déterminer afin de réaliser le dispositif. Un des paramètres important est le temps d'attente du plasma etching. On retire la couche d'oxyde d'aluminium en bombardant d'Argon ionisé. On veut savoir combien de temps cela doit rester pour retirer toute la couche d'oxyde, car rappelons-le, les nanofils proviennent de Copenhague et vont s'oxyder sur le trajet. Il faut donc retirer cette couche, cependant des méthodes chimiques semblaient peu adaptées, d'où l'idée de la faire par etching.
+        \subsection{Temps de développement}
+            Le temps de développement, c'est-à-dire le temps pendant lequel la résine est placé dans le MIBK et le Methyglycol, influe globalement sur la qualité des undercuts. Pour le MIBK, il faut un temps suffisant pour que tout le PMMA et le MMA exposé soit dissout, mais pas trop long pour éviter d'agrandir le pattern. De même pour le Methylglycol, il faut un temps suffisant pour avoir des undercuts suffisamment grandes (ie. que le métal ne s'évapore pas sur le MMA.) mais pas trop long pour éviter que le PMMA ne s'affaisse si trop de MMA est dissout. Cette étape a été réalisée avant mon arrivée des valeurs qui fonctionnaient ont été trouvées, je ne m'étendrais donc pas sur cette partie, cependant c'est un paramètre inmportant à prendre en compte, c'est pour cela que je le mentionne. 
+
+        \subsection{Angles d'évaporation}
+            A partir du pattern, toutes les surfaces où la résine a été retirée vont être recouvertes de métal. Ainsi, il faut faire attention à l'angle avec lequel on évapore sinon il n'y aura pas de jonction. Le docteur Taupin avait déterminé +14\textdegree  et -14\textdegree comme des angles fonctionnels pour l'évaporation. Cependant, en regardant les images SEM, on se rend compte que la surface de la jonction n'est pas optimale. J'ai donc réalisé quelques calculs pour déterminer un meilleur angle.
+            
+            \begin{figure}
+                \centering
+                \begin{tikzpicture}
+                \draw (0,0)--(10,0);
+                \draw (5,-0.5) node{Wafer $Si/SiO_2$};
+                \draw (2.33,0) arc(170:110:2.6)--(4,2.5)--(0,2.5);
+                \draw (7.67,0) arc(10:70:2.6)--(6,2.5)--(10,2.5);
+                \draw (0,2)--(4,2);
+                \draw (6,2)--(10,2);
+                \draw (1.5,1) node{MMA};
+                \draw (8.5,1) node{MMA};
+                \draw (1.5,2.25) node{PMMA};
+                \draw (8.5,2.25) node{PMMA};
+                \end{tikzpicture}
+            \end{figure}
+        
+        \subsection{Durée du plasma}
+            Un des buts de ce projet est de caractériser le plasma, et notamment son utilisation en gravure. D'ordinaire utilisé pour faciliter le lift-off, nous utilisons ici le plasma pour graver l'oxyde d'aluminium. Ainsi, la durée d'exposition au plasma ainsi que l'énergie des ions sont des paramètres importants. 
+            
+            Détermine la quantité d'Al qui sera gravée. On oxyde fortement l'Al avant de rogner l'oxyde pour revenir en clean contact. En comparant les résistances obtenues à celle sans plasma, on peut déterminer la quantité d'Al$_2$O$_3$ retirée.
+            
+    \section{Mesures}
+        \subsection{Méthode de mesures}
+            On réalise des mesures 4 fils sur les jonctions afin de s'affranchir des résistances parasites qui pourraientintervenir. En faisant cela on ne mesure que la résistances de la jonction. Le schéma permettant une telle mesure est le suivant :
+            
+            \begin{figure}
+            \centering
+            \begin{circuitikz}
+            \draw 
+        (0,0) node[ground]{} 
+            to [V,v=$DC$] (0,3)
+            to [R=1<\mega\ohm>] (3,3)
+            to [R=10<\kilo\ohm>,*-] (3,0)
+            node[ground] {}
+        (3,3) to [R=$R_{ech}$,i=$i_{ech}$] (11,3)
+            to [ammeter] (11,0) node[ground] {}
+        (5,3) to [american resistor, *-] (5,1)
+            to [voltmeter, v_>=$V_{ech}$] (9,1)
+            to [american resistor, -*] (9,3)            
+            ;
+            \end{circuitikz}
+            \caption{Schéma utilisé pour réaliser des mesures 4 fils}
+            \label{Schéma4fils}
+            \end{figure}
+            
+            Par la suite, j'ai réalisé des structures à 4 pads de mesures, j'ai donc utilisé une probestation, bien plus adaptée à la réalisation de mesures rapides.
+        \subsection{Résultats obtenus}
+        Les premiers tests réalisés ont été peu rigoureux dans leur manière d'être abordés : échantillons différents, manque de paramètres pris en compte, structures pas adaptées. Ainsi, nous avons mis en place une autre série de tests, plus systématique, et prennant en compte un plus grand nombre de paramètres.
+        Nous avons réalisé plusieurs séries de mesures avec des paramètres différents pour tenter de caractériser le plasma de l'évaporateur. La première étape fut de réaliser une jonction $AlCu$ et de mesurer sa résistance. Celle-ci constitue la base de toutes nos mesures. En la retirant, on peut directement associer la résistance résiduelle à l'épaisseur d'oxyde restant, ou bien aux détériorations provoquées par le plasma.
+        \begin{figure}
+            \centering
+            \includegraphics[width=250pt]{RCleancontact.png}
+            \caption{Résistance de la jonction Al/Cu en fonction de la surface de la jonction}
+            \label{Rclean}
+        \end{figure}
+        
+        Sur la Figure \ref{Rclean}, on remarque que la résistance dépend peu de la surface de la jonction. C'est normal car il s'agit d'un contact propre, c'est à dire un contact entre deux métaux. Ainsi la résistance vaut 
+        \[R=\dfrac{\sigma_{Cu} L}{S}+\dfrac{\sigma_{Al} L}{S}\]
+        
+        Les résistances obtenues pour cet échantillon témoin permettront de connaître la résistance de la partie isolante en la soustrayant, donc l'épaisseur d'oxyde. 
+        \section{Interpretation / Conclusions}
+        
+\chapter{Nanofils}
+\label{Chap4}
+Muni de ces résultats sur les tests, nous pouvons nous atteler à réaliser le dispositif que nous souhaitions obtenir au départ.
+       
+    \section{Fabrication}
+
+    \section{Caractérisation}
+
+    \section{Interpretations}
+
+\chapter{Perspectives d'avenir}
+\label{Chap5}
+Le projet ne s'arrete pas avec mon départ et il reste encore beaucoup à faire.
+    \section{Autres tests à réaliser} %Paramètres non pris en compte
+
+    \section{Etude théorique poussée}
+
+    \section{Ouverture vers d'autres structures}
+
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+\bibliographystyle{plain}
+\bibliography{Bibliography.bib}
+
+\appendix
+
+\chapter{Structures de Copenhague}
+\label{NanofilsInAs}
+        \begin{figure}[H]
+        \centering
+           \begin{tikzpicture}[scale=0.7]
+            \draw (2,0.25)--(2,-0.25)--(8,-0.25)--(8,0.25)--cycle;
+            \draw (5,0)node{$InAs$};
+            \draw (3.5,0.25)--(6.5,0.25)--(6.5,0.75)--(3.5,0.75)--cycle;
+            \draw (5,0.5)node{$Al$};
+            \draw (0,-1.5)--(0,1.5)--(2,1.5)--(2,-1.5)--cycle;
+            \draw (1,0)node{$Au/Ti$};
+            \draw (10,1.5)--(10,-1.5)--(8,-1.5)--(8,1.5)--cycle;
+            \draw (9,0)node{$Au/Ti$};
+            \draw (5,3)--(5,1.5);
+            \draw (4.5,1.5)--(5.5,1.5);
+            \draw (5,-3)--(5,-1.5);
+            \draw (4.5,-1.5)--(5.5,-1.5);
+            \draw [dotted] (2.1,1.4)--(3.4,1.4)--(3.4,-1.4)--(2.1,-1.4)--cycle;
+            \draw [dotted] (7.9,1.4)--(7.9,-1.4)--(6.6,-1.4)--(6.6,1.4)--cycle;
+            \draw [<-] (3.45,1.2)--(8.7,2.5);
+            \draw [<-] (7.2,1.4)--(9,2.5);
+            \draw (8.85,2.5)node[above]{Quantum dots parasites};
+            \draw (5,-3) node{$\bullet$} node[below]{$V_{bias}$};
+            \end{tikzpicture}
+        \caption{Schéma en coupe représentant la structure réalisée à Copenhague}
+        \label{StructureCopenhague}
+        \vspace{1cm}
+        \centering
+           \begin{tikzpicture}[scale=0.7]
+            \draw (2,0.25)--(2,-0.25)--(8,-0.25)--(8,0.25)--cycle;
+            \draw (5,0)node{$InAs$};
+            \draw (3.5,0.25)--(6.5,0.25)--(6.5,0.75)--(3.5,0.75)--cycle;
+            \draw (5,0.5)node{$Al$};
+            \draw (0,-1.5)--(0,1.5)--(2,1.5)--(2,-1.5)--cycle;
+            \draw (1,0)node{$Au/Ti$};
+            \draw (10,1.5)--(10,-1.5)--(8,-1.5)--(8,1.5)--cycle;
+            \draw (9,0)node{$Au/Ti$};
+            \draw (5,3)--(5,1.5);
+            \draw (4.5,1.5)--(5.5,1.5);
+            \draw (5,-3)--(5,-1.5);
+            \draw (4.5,-1.5)--(5.5,-1.5);
+            \draw (2.75,3)--(2.75,1.5);
+            \draw (3.25,1.5)--(2.25,1.5);
+            \draw (2.75,-3)--(2.75,-1.5);
+            \draw (3.25,-1.5)--(2.25,-1.5);
+            \draw (7.25,3)--(7.25,1.5);
+            \draw (6.75,1.5)--(7.75,1.5);
+            \draw (7.25,-3)--(7.25,-1.5);
+            \draw (6.75,-1.5)--(7.75,-1.5);
+            \draw (5,-3) node{$\bullet$} node[below]{$V_{bias}$};
+            \draw (7.25,-3)node{$\bullet$} node[below]{$DC$};
+            \draw (2.75,-3)node{$\bullet$} node[below] {$DC$};
+            \end{tikzpicture}
+        \caption{Schéma en coupe représentant la structure réalisée à Copenhague après ajout de capacités de polarisation de quantum dots}
+        \label{StructureCopenhagueDéfauts}
+        \end{figure}
+        
+\chapter{Graphes}
+
+
+\end{document}

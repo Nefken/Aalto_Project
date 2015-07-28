@@ -1,0 +1,44 @@
+
+@article{PR_32_110,
+author={H.Nyquist},
+year={1928},
+journal={Physical Review},
+pages={110},
+number={32},
+}
+
+@article{PR_32_97,
+author={J.Johnson},
+year={1928},
+journal={Physical Review},
+pages={97},
+number={32},
+}
+
+@article{Nature_444,
+author={M.Meschke, W.Guichard and J.P.Pekola},
+year={2006},
+journal={Nature},
+number={444},
+pages={187},
+}
+
+@article{PRL_102_200801,
+journal={Physical Review Letter},
+year={2009},
+author={A.V.Timofeev, M.Helle, M.Meschke and J.P.Pekola},
+number={102},
+}
+
+@article{epitaxie,
+journal={Nature Materials},
+year={2015},
+author={P.Krogstrup N.L.B.Ziino S.M.Albretch M.H.Madsen E.Johnson J.Nygard C.M.Marcus and T.S.Jespersen},
+},
+ 
+@phdthesis{Andreev,
+year={2014},
+author={Ville F. Maisi},
+title={Andreev tunneling and quasiparticle excitations in mesoscopic normal metal $-$ superconductor structures},
+},
+

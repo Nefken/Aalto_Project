@@ -1,0 +1,1 @@
+Pour FG 1 et 2 avec Igain=10-9 et 3 et 4 avec IGain=10-11

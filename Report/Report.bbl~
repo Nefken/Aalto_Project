@@ -1,0 +1,36 @@
+\begin{thebibliography}{1}
+
+\bibitem{NIS_thermo}
+GFrancesco Giazotto, Tero~T. Heikkilä, Arttu Luukanen, Alexander~M. Savin, and
+  Jukka~P. Pekola.
+\newblock
+  \href{http://journals.aps.org/rmp/pdf/10.1103/RevModPhys.78.217}{Opportunities
+  for mesoscopics in thermometry and refrigeration: Physics and applications}.
+\newblock {\em Rev. Mod. Phys}, 2006.
+
+\bibitem{statistics}
+D.~Gobulev and J.P. Pekola.
+\newblock \href{http://arxiv.org/pdf/1502.07221v1}{Statistics of heat exchange
+  between two resistors}.
+\newblock 2015.
+
+\bibitem{epitaxie}
+P.~Krogstrup, N.L.B. Ziino, S.M. Albretch, M.H. Madsen, E.~Johnson,
+  J.~Nygard~C.M. Marcus, and T.S. Jespersen.
+\newblock \href{http://arxiv.org/pdf/1411.6254}{Epitaxy of
+  semiconductor-superconductor nanowires}.
+\newblock {\em Nature Materials}, 2015.
+
+\bibitem{EBL_theory}
+M.A. Mohammad, M.~Muhammad, S.K. Dew, and M.~Stepanova.
+\newblock \href{http://www.springer.com/978-3-7091-0423-1}{Fundamentals of
+  Electron Beam Exposure and Development}.
+\newblock {\em Springer}, 2012.
+
+\bibitem{ampere}
+J.P. Pekola, O.P. Saira, V.F. Maisi, A.~Kemppinen, and M.~Möttönen.
+\newblock \href{http://arxiv.org/pdf/1208.4030v2}{Single-electron current
+  sources: Toward a refined definition of the ampere}.
+\newblock {\em Review of Modern Physics 85}, 2013.
+
+\end{thebibliography}

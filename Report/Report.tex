@@ -1,0 +1,32 @@
+\documentclass[a4paper,11pt]{report}
+\input{preambule_en}
+
+\includeonly{
+    Intro_en,
+    Chapitre1_en,
+    Chapitre2_en,
+    Chapitre3_en,
+    Chapitre4_en,
+    Chapitre5_en,
+    Conclu_en,
+    Annexe_en,
+    %Biblio
+    }
+\begin{document}
+
+\input{Titre_en}
+\tableofcontents
+\include{Intro_en}
+\include{Chapitre1_en}
+\include{Chapitre2_en}
+\include{Chapitre3_en}
+\include{Chapitre4_en}
+\include{Chapitre5_en}
+\include{Conclu_en}
+\appendix
+\include{Annexe_en}
+
+%\include{Biblio}
+\bibliographystyle{plain}
+\bibliography{Bibliographyurl}
+\end{document}

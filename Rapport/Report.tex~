@@ -1,0 +1,111 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[francais]{babel}
+\usepackage[top=3cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\begin{document}
+\begin{titlepage}
+\vspace*{\stretch{3}}
+
+    \begin{center}
+        {\LARGE \textsc{Summer Job Report}}\\
+        \vspace{0.2cm}
+        
+        {\Huge \textsc{<Insert name here>}}\\
+        
+        \vspace{1cm}
+        
+        {\Large Nicolas \textsc{Paillet}}\\
+        \vspace{0.5cm}
+        
+        18 May 2015 $-$ 15 August 2015\\
+        
+        \vspace{1cm}
+        
+    In collaboration with 
+    \vspace{1cm}
+    
+        \hspace*{\stretch{0.7}}
+        \includegraphics[width=35mm]{logo_phelma.png}
+        \hfill
+        \includegraphics[width=25mm]{logo_aalto.png}
+        \hspace*{\stretch{0.7}}
+       \end{center} 
+    \vspace*{\stretch{3}}
+\end{titlepage}
+\tableofcontents
+\vspace{8cm}
+
+\begin{center}
+\vspace*{\stretch{2}}
+{\Large \textsc{Aknowledgments}}
+\vspace{0.5cm}
+
+\textit{I would first like to thank Professor Jukka Pekola who accepted me in PICO Group for the Summer. This would not have been possible without Doctor Clemens Winckelmann who gave me the contact details. Then, I would like to thank the whole PICO Group who welcome me so well, and especially Dr. Mathieu Taupin who took me on one of his project and helped through this. Finally, I will thank Grenoble INP- PHELMA for having given me the opportunity to do such an internship.}
+\vspace*{\stretch{9}}
+\end{center}
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+The project name is <Nom>. Taking place in the middle of research on nanowires, this project covers a large range of today's physics, especially about experiments. From design to characterization of nanostructures passing through cleanroom fabrication, it totally fits in my professional project and aims to discover more about some types of junctions. 
+
+\chapter{Présentation du sujet}
+
+\section{Bases de théorie}
+\section{Avancement actuel}
+\section{But à atteindre}
+
+\chapter{Process Flow de Salle blanche}
+
+\section{Résines}
+\section{EBL et développement}
+\section{Evaporateur}
+\section{Lift-off et SEM}
+
+\chapter{Phase de tests}
+
+Comme on veut réaliser quelque chose de nouveau et d'assez lourd à mettre en place, on veut d'abord savoir quels paramètres utiliser pour avoir ce que l'on souhaite. Pour cela, on réalise des tests sur des dispositifs simples (NIS) pour connaître l'effet des paramètres que l'on modifie.
+
+\section{Différents paramètres}
+
+Il y a de nombreux parammètres à prendre en compte lors de la réalisation d'un dispositif en salle blanche (notamment certains temps). Arrivé en cours, certains paramètres ont déjà été déterminés comme fonctionnels. Mais d'autres restent à déterminer afin de réaliser le dispositif.
+
+\section{Résultats en fonction des paramètres}
+Statistique des tests réalisés : 
+
+\section{Valeurs prometteuses}
+
+\chapter{Design à étudier}
+Muni de ces résultats sur les tests, nous pouvons nous atteler à réaliser le dispositif que nous souhaitions obtenir au départ.
+\section{Design théorique}
+
+\section{Réalisation}
+
+\section{Caractérisation}
+
+\section{Interpretations}
+
+\chapter{Perspectives d'avenir}
+Le projet ne s'arrete pas avec mon départ et il reste encore beaucoup à faire.
+\section{Autres tests à réaliser/Paramètres non pris en compte}
+
+\section{Etude théorique poussée}
+
+\section{Ouverture vers d'autres devices}
+
+\chapter{Bilan du projet}
+
+\chapter*{Conclusion}
+\addcontentsline{toc}{chapter}{Conclusion}
+
+%biblio
+\appendix
+
+\chapter{Graphes}
+
+
+\end{document}

@@ -1,0 +1,71 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Clean Room methods}{7}{chapter.2}}
+\@writefile{lof}{\addvspace {10\p@ }}
+\@writefile{lot}{\addvspace {10\p@ }}
+\newlabel{Chap2}{{2}{7}{Clean Room methods}{chapter.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Resists}{7}{section.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}From theory...}{7}{subsection.2.1.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Chemical structure of MMA, PMMA is a polymer made of this monomer}}{7}{figure.2.1}}
+\newlabel{PMMA}{{2.1}{7}{Chemical structure of MMA, PMMA is a polymer made of this monomer}{figure.2.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Spinner}}{7}{figure.2.2}}
+\citation{EBL_theory}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Cross-section view after resist deposit, spinning and baking}}{8}{figure.2.3}}
+\newlabel{resine}{{2.3}{8}{Cross-section view after resist deposit, spinning and baking}{figure.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}...To practical}{8}{subsection.2.1.2}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Electron Beam Lithography and development}{8}{section.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Electron Beam Lithography}{8}{subsection.2.2.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.4}{\ignorespaces Simplified EBL functional diagram}}{9}{figure.2.4}}
+\newlabel{EBLschema}{{2.4}{9}{Simplified EBL functional diagram}{figure.2.4}{}}
+\newlabel{explicationebl}{{2.2.1}{9}{Electron Beam Lithography}{subsection.2.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Pattern design}{9}{subsection.2.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.3}Development}{9}{subsection.2.2.3}}
+\newlabel{development}{{2.2.3}{9}{Development}{subsection.2.2.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.5}{\ignorespaces Electron Beam Lithographier Vistec of Micronova clean room}}{10}{figure.2.5}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.6}{\ignorespaces Cross-section view after EBL}}{10}{figure.2.6}}
+\newlabel{waferEBL}{{2.6}{10}{Cross-section view after EBL}{figure.2.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.7}{\ignorespaces Chemical structure of MethylIsoButylKetone (MIBK)}}{11}{figure.2.7}}
+\newlabel{MIBK}{{2.7}{11}{Chemical structure of MethylIsoButylKetone (MIBK)}{figure.2.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.8}{\ignorespaces Cross-section view after MIBK}}{11}{figure.2.8}}
+\newlabel{apr\IeC {\`e}sMIBK}{{2.8}{11}{Cross-section view after MIBK}{figure.2.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.3}Evaporator}{11}{section.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.1}Functioning of evaporator}{11}{subsection.2.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.9}{\ignorespaces Cross-section after full development}}{12}{figure.2.9}}
+\newlabel{Apr\IeC {\`e}sdvpt}{{2.9}{12}{Cross-section after full development}{figure.2.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.10}{\ignorespaces Photographie de l'\IeC {\'e}vaporateur LISA utilis\IeC {\'e} pour r\IeC {\'e}aliser les structures}}{12}{figure.2.10}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.11}{\ignorespaces Cross-section after full development}}{13}{figure.2.11}}
+\newlabel{Apr\IeC {\`e}sdvpt}{{2.11}{13}{Cross-section after full development}{figure.2.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3.2}Evaporator in action}{13}{subsection.2.3.2}}
+\newlabel{evapangles}{{2.3.2}{13}{Evaporator in action}{subsection.2.3.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.4}Lift-off et SEM}{13}{section.2.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.1}Le Lift-off : retrait de la r\IeC {\'e}sine}{13}{subsection.2.4.1}}
+\newlabel{lift-off}{{2.4.1}{13}{Le Lift-off : retrait de la résine}{subsection.2.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.2}Fonctionnement du SEM}{13}{subsection.2.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.4.3}Observation d'\IeC {\'e}chantillons}{13}{subsection.2.4.3}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.12}{\ignorespaces Photographie du Scanning Electron Microscope utilis\IeC {\'e} pour observer les structures r\IeC {\'e}alis\IeC {\'e}es}}{14}{figure.2.12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.13}{\ignorespaces Exemple d'une structure observ\IeC {\'e}e au SEM}}{15}{figure.2.13}}
+\newlabel{SEMexemple}{{2.13}{15}{Exemple d'une structure observée au SEM}{figure.2.13}{}}
+\@setckpt{Chapitre2_en}{
+\setcounter{page}{16}
+\setcounter{equation}{0}
+\setcounter{enumi}{0}
+\setcounter{enumii}{0}
+\setcounter{enumiii}{0}
+\setcounter{enumiv}{0}
+\setcounter{footnote}{0}
+\setcounter{mpfootnote}{0}
+\setcounter{part}{0}
+\setcounter{chapter}{2}
+\setcounter{section}{4}
+\setcounter{subsection}{3}
+\setcounter{subsubsection}{0}
+\setcounter{paragraph}{0}
+\setcounter{subparagraph}{0}
+\setcounter{figure}{13}
+\setcounter{table}{0}
+\setcounter{parentequation}{0}
+\setcounter{Item}{0}
+\setcounter{Hfootnote}{0}
+\setcounter{bookmark@seq@number}{11}
+\setcounter{section@level}{2}
+}

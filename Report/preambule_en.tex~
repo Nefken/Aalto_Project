@@ -1,0 +1,17 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage[top=3cm,bottom=3cm,left=3.5cm,right=3.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{pgf}
+\usepackage[siunitx,european]{circuitikz}
+\usepackage{etoolbox}
+\usepackage{chemfig}
+\usepackage{textcomp}
+\usepackage{hyperref}
+\usepackage{float}
+\usetikzlibrary{fadings}
