@@ -1,0 +1,10 @@
+
+Notes 12/06
+
+Mise en place d'un nouvelle série de tests, plus rigoureux.
+Nouveau pattern avec 4 pads + différentes surfaces de jonctions.
+
+Réalisation d'échantillons Clean contact, qui serviront d'échantillons témoins pour connaitre la résistance des leads.
+Confirmation du problème de l'EBL sur les échantillons précédents.
+
+Mesures 4 fils des résistances clean contact.

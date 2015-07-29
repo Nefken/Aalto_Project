@@ -1,0 +1,6 @@
+
+Notes du 4/06/2015
+
+Première évaporation : test8 Plasma 4.10^-4 mbar/ 2min  : Al 20 nm/Cu 25nm
+
+Mesures 4 fils : R autours de 85-90-95 / Idem que jonction NS précédente.

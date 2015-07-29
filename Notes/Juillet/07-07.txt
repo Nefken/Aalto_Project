@@ -1,0 +1,6 @@
+
+Notes du 05/07
+
+Réalisation de 2 tests à la suite dans l'évaporateur : test 16.i et 17.i.
+
+Observation SEM : 17.i raté : résine brulée par plasma

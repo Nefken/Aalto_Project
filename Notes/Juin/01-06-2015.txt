@@ -1,0 +1,8 @@
+
+Notes du 1/06/2015
+
+Explication sur le lien entre Matlab et les appareils, en cas de doute consulter la doc sur internet.
+
+Test de mesure de résistance d'abord sur résistance pour tester avec un schéma noté sur feuille. (ampli de tension et de courant)
+
+

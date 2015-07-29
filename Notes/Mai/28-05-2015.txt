@@ -1,0 +1,15 @@
+
+Notes 28/05/2015
+
+Lecture de l'article Epitaxy of semiconductor-superconductor nanowires
+
+    - Croissance d'Al sur InAs selon certains axes cristallographiques
+
+    - Controle de l'interface, interface propre dépendant de l'orientation
+    
+Mise en place des différentes parties du rapport : structuration des informations principales à donner
+
+Récupération d'articles concernant les techniques de salle blanche
+
+Lecture de certains articles à propos des différentes techniques
+    

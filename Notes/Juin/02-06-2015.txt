@@ -1,0 +1,10 @@
+
+Notes du 2/06/2015
+
+Réalisation de mesures 4 fils sur les échantillons jonction NS test6.
+
+Détermination des résistances des jonctions réalisées le 28/05 : 2 comportaient des problèmes, les autres autours de 85 Ohms.
+(Bounding + mesures 4 fils avec Matlab)
+
+Observation du réchauffement et de la mise en froid du frigo
+

@@ -1,0 +1,12 @@
+
+Notes 10/06->11/06
+
+
+EBL sur de nouveau echantillons avec nouveau pattern. Echec : problème de hauteur dans l'EBL : echantillons inexploitables. (test10) Demande tout de même vérification.
+
+Training SEM 
+
+=> Autonomie totale en salle blanche (à partir du wafer passé dans l'EBL)
+
+
+

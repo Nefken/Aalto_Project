@@ -1,7 +1,6 @@
-function[fit1]=plotest_2(name)
+function[R]=Resistance_Table(name)
 
-fit1=100000*ones(1,20);
-d=0;
+R=zeros(4,5);
 for j=1:4
     for i=1:5
         A=zeros(4,100);
@@ -14,8 +13,6 @@ for j=1:4
         elseif (j==4)
             m=num2str(2);
         end
-        
-        d=d+1;
         nametest=strcat(name,m,'_',num2str(i),'.DAT');
         fichier=fopen(nametest); 
         
@@ -24,15 +21,17 @@ for j=1:4
         end
             
                 for k=1:44
-                    tline = fgets(fichier);
+                    tline = fgets(fichier); %passer le header
                 end
         
-        A=fscanf(fichier,'%f',size(A));
+        A=fscanf(fichier,'%f',size(A));     %Traitement des IV
 
-        a=polyfit(A(3,:),A(2,:),1);
-        fit1(d)=a(1);
+        fit=polyfit(A(3,:),A(2,:),1);         %Fit des IV pour obtenir R
+        
+        R(j,i)=fit(1);
      end
-    fclose('all');          
+    fclose('all');   
 end
+R;
 end
 

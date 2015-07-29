@@ -1,0 +1,5 @@
+function[]=Oneplot(test)
+
+
+
+end

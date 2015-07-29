@@ -1,0 +1,20 @@
+
+Notes du 27/05/2015
+
+Matinée : Cleanroom training (safety mostly and contamination)
+
+Après midi :
+
+Tâche en cours : Test de différentes durées sous plasma pour retirer en partie la couche d'oxyde d'Al en vue d'autres applications.
+
+Echantillon Test 5 à fabriquer. (jonction NIS Al/Al2O3/Cu)
+
+EBL déjà fait.
+Développement : MIBK 20s / Methylpropane 20s / IPA
+Evaporateur : Al 20nm / Oxydation O2 10min/200mbar / Plasma (Ar) 25min / Cu 25nm
+Lift-off 10-15min acétone
+
+Caractérisation : Très résistif, test à refaire avec ces paramètres pour confirmer.
+
+
+

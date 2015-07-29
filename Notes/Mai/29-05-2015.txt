@@ -1,0 +1,14 @@
+
+Notes 29/05/2015
+
+Clivage + developpement des échantillons
+
+Problème avec évaporateur : 2 capteurs HS.
+
+Fix + réalisation du process (test6)
+
+SEM
+
+Mesure 2 fils puis 4 fils en probe station, peu concluante : on va bounder l'échantillon à un porte échantillon et mesure "proprement"
+
+Apprentissage de l'utilisation de la bounding machine pour réaliser des microsoudures.

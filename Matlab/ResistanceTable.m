@@ -1,6 +1,6 @@
 function[R]=ResistanceTable(name)
 
-R=[];
+R=zeros(4,5);
 for j=1:4
     for i=1:5
         A=zeros(4,100);

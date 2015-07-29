@@ -14,7 +14,7 @@ RClean=fliplr(RClean);
 
 data=zeros(3,20);
 
-data(2,:)=plotest_(name1);
+data(2,:)=Resistance_Table(name1);
 data(3,:)=plotest(name2);
 data(1,:)=plotest(name3);
 

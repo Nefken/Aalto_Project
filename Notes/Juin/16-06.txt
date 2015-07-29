@@ -1,0 +1,18 @@
+
+Notes du 16/06
+
+Réalisation de 4 structures : test13. Tentative de caractérisation du plasma : uniformité sur toute la surface ? Echantillons répartis sur le porte échantillon. (Milieu/bas/haut/droite 2/1/3/4)
+
+Début des mesures 4 fils via bounding -> long
+
+Explications de Matthias sur la résine.
+
+
+test 13 : 
+20s MIBK/20s MG/IPA
+20nm Al
+Ox 10min / 0.2 bar
+Plasma 10 min / 4.10-4mbar / 40mA / -0.8kV / 1.5 kV
+25nm Cu
+Acetone
+

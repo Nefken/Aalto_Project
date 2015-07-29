@@ -1,0 +1,8 @@
+
+Notes du 3/06/2015
+
+Training evaporator LISA : réalisation de jonctions NIS Cu/Al2O3/Al  25nm/1min à 1mbar O2/20nm.
++lift off
+
+Mesures 4 fils de ces jonctions : Bounding + mesures de la résistance : 215 Ohms.
+

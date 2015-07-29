@@ -1,0 +1,11 @@
+
+Notes du 17/06-18/06
+
+Mesures 4 fils sur échantillons précédents via probestation : beaucoup plus rapide.
+Exploitation des résultats : Mise en place d'un doc excel permettant de déterminer rapidement la résistance à partir des séries de données IV (Exploit), puis de calculer la moyenne pour une surface donnée ainsi que l'écart type. Création d'un autre document permettant la comparaison des différents échantillons. Il suffit de rajouter une série de données sur le graphique.
+
+Graphe montrant R en fonction de la surface pour différentes positions vis-à-vis du plasma / Clean contact. (Rposition)
+Graphe montrant R en fonction de la surface pour différents temps de plasma / clean contact. (Rplasma)
+Graphes comparant chaque échantillon au Clean Contact.
+
+Mise à jour des notes délaissées.

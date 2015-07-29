@@ -1,0 +1,20 @@
+
+Planning deux semaines de vacances de Mathieu :
+
+1/ Continuer à réaliser des tests : 
+    
+    a) Ox 2min/2mbar
+    b) Ox 10min/0.2bar + Plasma 10 min + Ox 2min/2mbar 
+    c) Ox 10min/0.2 bar + Plasma 5 minutes.
+    
+2/ Simulation de courbe I-V d'une jonction NIS.
+
+3/ Mise à froid des deux échantillons a) et b) et mesures I-V à froid.
+
+4/ Determination de l'épaisseur d'Al après plasma etching par AFM. (un seul echantillon qu'on Etch plusieurs fois ?)
+
+5/ Biblio :     
+    Dilution
+    NW
+    NIS
+    Etching

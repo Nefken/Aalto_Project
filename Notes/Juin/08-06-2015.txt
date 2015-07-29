@@ -1,0 +1,6 @@
+
+Notes du 8/06/2015
+
+Réalisation de structures test9 20nm Al / Ox 200mbar, 10min / Plasma 25min / 25nm Cu.
+
+Mesures 4 fils des structures : R=130-180 Ohms => Pas encore de clean contact : il reste de l'oxyde a priori.

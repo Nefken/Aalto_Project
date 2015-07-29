@@ -1,0 +1,9 @@
+
+Notes du 08/07->10/07
+
+Nombreux problèmes avec le LISA, aucune possibilité de refaire les tests ratés.
+
+Exploitation des mesures : réalisation d'un programme matlab qui fait tout automatiquement.
+Reexploitation des anciennes mesures pour avoir de images propres.
+
+Présentation des résultats à Jukka qui trouve cela encourageant.

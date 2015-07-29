@@ -1,31 +1,46 @@
-clear all
-clc
-close all
-fclose('all')
+function[]=ConductanceOx(test)
 
-name1=strcat('/home/Data/Aalto_Project/Mesures/test15/');
+if test==15
+    forceox=' Strong Oxidation, 10 min under 200 mbar';
+else
+    forceox=' Regular Oxidation, 2 min under 2 mbar';
+end
 
-s=[0.5 0.5 0.5 0.5 0.5 1 1 1 1 1 1.5 1.5 1.5 1.5 1.5 2 2 2 2 2];
-RClean=[63.34 63.08 64.42 64.64 1e5 65.32 64.6 63 65.26 1e5 63.259 65.52 66.75 65.79 1e5 68.3854 67.08 66.15 1e5 1e5];
-RClean=fliplr(RClean);
+s=[0.5;1; 1.5;2];    % variable Surface
 
-fit1=plotestinvert(name1);
+% Init du dossier où sont les dossiers de data
+Folder=('/home/nicolas/Documents/School-Pro/Aalto_Project/Mesures/');
+file=num2str(test);
+name=strcat(Folder,'test',file,'/')
 
-figure(1)
-hold on
+R(:,:)=ResistanceTable(name);
 
-p1=plot(s,fit1,'d');
-set(p1,'Color','Blue')
+G(:,:)=1./R(:,:);
+
+a=(polyfit(s,G(:,3),1)+polyfit(s,G(:,5),1))./2;
 
 x=[0:0.05:2.5];
-linearfit=plot(x, 1.392e-4.*x+1.456e-6)
-set(linearfit,'Color','Blue')
+Fit=x.*a(1)+a(2);
 
-%p2=plot(s,fit2,'d');
-%set(p2,'Color','Black')
-legend('Conductance','Linear fit : 1/R=0.0001392.S+1.456e-6')
+RS=1./a(1);
+RS=round(RS,0);
 
-xlabel('Surface (µm²)')
-ylabel('Conductance (Ohm^-^1)')
-title('Conductance against surface with strong oxidation')
-axis([0 2.5 0 0.0004])
+f=figure('units','normalized','outerposition',[0 0 1 1]);
+hold on
+p2=plot(x,Fit,'-');
+p1=plot(s,G,'.');
+
+set(p1,'Color','Blue');
+set(p2,'Color','Red');
+legend('Linear Fit','Conductance');
+
+TextBox=uicontrol('Style','text');
+Rstr=strcat('RS = ',num2str(RS),' Ohm.µm²');
+set(TextBox,'String',Rstr,'Position',[300 500 200 60],'BackGroundColor','w','FontSize',12);
+xlabel('Surface (µm²)');
+ylabel('Conductance (Ohm^-^1)');
+
+titre=strcat('Conductance in function of the surface with ',forceox);
+title(titre);
+
+end

@@ -1,0 +1,71 @@
+function[]=Position2(test)
+
+R=zeros(4,4,5);
+Folder=('/home/nicolas/Documents/School-Pro/Aalto_Project/Mesures/');
+s=[0.5 1 1.5 2];
+
+if (test==13)
+    for i=1:4;
+        
+        file=num2str(test);
+        name=strcat(Folder,'test',file,'/test',file,'.',num2str(i),'/');
+        R(i,:,:)=Resistance_Table(name);
+        
+        R(R < 1) = NaN;
+        R(R > 300) = NaN;
+    end
+    
+    figure(1)
+    hold on
+    
+    for j=1:5
+        for k=1:4
+            hold on
+            p(k)=plot(s,R(k,:,j),'.');
+        end
+        set(p(1),'Color','Black');
+        set(p(2),'Color','Red');
+        set(p(3),'Color','Green');
+        set(p(4),'Color','Blue');
+    end
+    title('Resistance in function of surface for position with 10 min of Plasma at 300K');
+    legend('Bottom','Middle','Left', 'Right');
+    xlabel('Surface area of the junction (µm²)');
+    ylabel('Resistance (Omh)');
+    axis([-0 2.5 -10 300]);
+    
+elseif(test==14)
+    for i=1:4;
+        
+        file=num2str(test);
+        name=strcat(Folder,'test',file,'/test',file,'.',num2str(i),'/');
+        R(i,:,:)=ResistanceTable(name);
+        
+    end
+    
+    R(R < 1) = NaN;
+    R(R > 300) = NaN;
+    
+    figure(1)
+    hold on
+    
+    for j=1:5
+        for k=1:4
+            hold on
+            p(k)=plot(s,R(k,:,j),'.');
+        end
+        set(p(1),'Color','Black');
+        set(p(2),'Color','Red');
+        set(p(3),'Color','Green');
+        set(p(4),'Color','Blue');
+    end
+    title('Resistance in function of surface for position with 20 min of Plasma at 300K');
+    legend('Middle','Left','Up', 'Right');
+    xlabel('Surface area of the junction (µm²)');
+    ylabel('Resistance (Omh)');
+    axis([-0 2.5 -10 300]);
+
+else
+    error('Il n y a qu une position pour cet echantillon')
+end
+end
