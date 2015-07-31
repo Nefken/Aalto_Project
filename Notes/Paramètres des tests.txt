@@ -129,8 +129,8 @@ test19.i : Oxydation "normale"
     Ox 2min  / 2 mbar
     25nm Cu
     Acetone
-
-test20: Oxydation après Plasma Etching
+ 
+test20: Oxydation après Plasma Etching   -> Fail
     Pattern 4 pads
     Dose EBL : 2000 -> 3000 µc/cm² [250]
     Surface de jonction : 2µm² -> 0.5µm²
@@ -152,3 +152,46 @@ test21 : Oxydation "normale"
     25nm Cu
     Acetone
     
+test22 : Plasma 5 min
+    Pattern 4 pads
+    Dose EBL : 2000 -> 3000 µc/cm² [250]
+    Surface de jonction : 2µm² -> 0.5µm²
+    20s MIBK / 20s MG / IPA
+    20nm Al 15°
+    Ox 10min / 0.2 bar
+    Plasma 5 min / Pression = 4.10-4mbar / I_power = 40mA / V = -250V / Ion energy = 1.5 kV
+    25nm Cu -15°
+    Acetone   
+    
+test23 : Plasma 2 min
+    Pattern 4 pads
+    Dose EBL : 2000 -> 3000 µc/cm² [250]
+    Surface de jonction : 2µm² -> 0.5µm²
+    20s MIBK / 20s MG / IPA
+    20nm Al 15°
+    Ox 10min / 0.2 bar
+    Plasma 2 min 30s/ Pression = 4.10-4mbar / I_power = 40mA / V = -250V / Ion energy = 1.5 kV
+    25nm Cu -15°
+    Acetone 
+
+test24: Oxydation après Plasma Etching -> R = 10kOhm !
+    Pattern 4 pads
+    Dose EBL : 2000 -> 3000 µc/cm² [250]
+    Surface de jonction : 2µm² -> 0.5µm²
+    20s MIBK / 20s MG / IPA
+    20 nm Al
+    Ox 10min / 200mbar
+    Plasma 10 min / Pression = 4.10-4mbar / I_power = 40mA / V = -250V / Ion energy = 1.5kV
+    Ox 2min / 2 mbar
+    25nm Cu
+    Acetone
+
+test25 : Oxydation "normale" 
+    Pattern 4 pads
+    Dose EBL : 2000 -> 3000 µc/cm² [250]
+    Surface de jonction : 2µm² -> 0.5µm²
+    20s MIBK / 20s MG / IPA
+    20 nm Al
+    Ox 2min  / 2 mbar
+    25nm Cu
+    Acetone   

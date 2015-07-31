@@ -37,7 +37,7 @@ for i=1:length(test); %% Création de la table de data : R(test,s,dose)
     hold on
     
     for j=1:5           % Boucle sur les sample des points à tracer
-        for k=1:4       % Boucle sur les tests des points à tracer
+        for k=1:length(test)+1      % Boucle sur les tests des points à tracer
             hold on     % k -> Permet d'indenter les légendes
             p(k)=plot(s,R(k,:,j),'.');  % plot presque test par test pour une dose donnée
         end
@@ -45,9 +45,10 @@ for i=1:length(test); %% Création de la table de data : R(test,s,dose)
         set(p(2),'Color','Red');        % Couleur 5 min = rouge
         set(p(3),'Color','Green');      % Couleur 10 min = vert
         set(p(4),'Color','Blue');       % Couleur 20 min = Bleu
+        set(p(5),'Color','Yellow');
     end
     title('Resistance in function of surface for different etching time at 300K');
-    legend('Clean Contact','Plasma 5 min','Plasma 10 min', 'Plasma 20 min');
+    legend('Clean Contact','Plasma 2 min 30s','Plasma 5 min','Plasma 10 min', 'Plasma 20 min');
     xlabel('Surface area of the junction (µm²)');
     ylabel('Resistance (Omh)');
     axis([-0 2.5 -10 300]);

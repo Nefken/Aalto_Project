@@ -7,17 +7,23 @@ else
 end
 
 s=[0.5;1; 1.5;2];    % variable Surface
-
+s2=[0.5 0.5 0.5 0.;1 1 1 1 ;1.5 1.5 1.5 1.5;  2 2 2 2]
 % Init du dossier où sont les dossiers de data
 Folder=('/home/nicolas/Documents/School-Pro/Aalto_Project/Mesures/');
 file=num2str(test);
-name=strcat(Folder,'test',file,'/')
+
+name=strcat(Folder,'test',file,'/test/');
 
 R(:,:)=ResistanceTable(name);
 
-G(:,:)=1./R(:,:);
+R(R<1)=NaN;
+G(:,:)=1./R(:,:)
 
-a=(polyfit(s,G(:,3),1)+polyfit(s,G(:,5),1))./2;
+if test==15
+    a=(polyfit(s,G(:,3),1)+polyfit(s,G(:,5),1))./2;
+elseif test==25
+    a=polyfit(s2,G(:,2:5),1);
+end
 
 x=[0:0.05:2.5];
 Fit=x.*a(1)+a(2);
