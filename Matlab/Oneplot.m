@@ -1,6 +1,6 @@
 function[]=Oneplot(test)
 
-Param=SampleParam(test);
+%Param=SampleParam(test);
 s=[0.5;1; 1.5;2];
 Folder=('/home/nicolas/Documents/School-Pro/Aalto_Project/Mesures/');
 file=num2str(test);
@@ -22,12 +22,12 @@ R(R>20000)=NaN;
 
 f=figure('units','normalized','outerposition',[0 0 1 1]);
 hold on
-p=plot(s,R/1000,'.');
+p=plot(s,R,'.');
 
 set(p,'Color','Blue');
 legend('Resistance');
 xlabel('Surface (µm²)');
-ylabel('Resistance (kOhm)');
-title(Param{1});
-axis([0 2.5 0 20]);
+ylabel('Resistance (Ohm)');
+title('Resistance Plasma Etching + Oxidation');
+axis([0 2.5 0 4000]);
 end

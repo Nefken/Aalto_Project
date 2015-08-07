@@ -2,11 +2,11 @@ clearall
 
 %% Type de courbe
     
-    type='Surface';
+    type='Conductance';
 
 %% Choix des test à prendre en compte
     
-    test=[23 22 13 14];
+    test=[27];
     
 if (strcmp(type,'Surface')==1)
     Surface(test);
