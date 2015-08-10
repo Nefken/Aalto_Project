@@ -1,9 +1,9 @@
 function[]=ConductanceOx(test)
 
 if test==15
-    forceox=' Strong Oxidation, 10 min under 200 mbar';
+    forceox=' Strong Oxidation, 10 min / 200 mbar';
 else
-    forceox=' Regular Oxidation, 2 min under 2 mbar';
+    forceox=' Oxidation 2 min / 2 mbar';
 end
 
 s=[0.5;1; 1.5;2];    % variable Surface
@@ -13,7 +13,7 @@ s3=[0.5 0.5 0.5 0.5 0.5;1 1 1 1 1;1.5 1.5 1.5 1.5 1.5;2  2 2 2 2]
 Folder=('/home/nicolas/Documents/School-Pro/Aalto_Project/Mesures/');
 file=num2str(test);
 
-name=strcat(Folder,'test',file,'/test/');
+name=strcat(Folder,'test',file,'/');
 
 R(:,:)=ResistanceTable(name);
 
@@ -21,7 +21,7 @@ R(R<1)=NaN;
 G(:,:)=1./R(:,:)
 
 if test==15
-    a=(polyfit(s,G(:,2),1)+polyfit(s,G(:,5),1))./2;
+    a=(polyfit(s,G(:,3),1)+polyfit(s,G(:,5),1))./2;
 elseif test==25
     a=polyfit(s2,G(:,2:5),1);
 else
@@ -45,11 +45,20 @@ legend('Linear Fit','Conductance');
 
 TextBox=uicontrol('Style','text');
 Rstr=strcat('RS = ',num2str(RS),' Ohm.µm²');
-set(TextBox,'String',Rstr,'Position',[300 500 200 60],'BackGroundColor','w','FontSize',12);
-xlabel('Surface (µm²)');
-ylabel('Conductance (Ohm^-^1)');
+set(TextBox,'String',Rstr,'Position',[300 500 250 60],'BackGroundColor','w','FontSize',16,'fontweight','bold');
+xh=xlabel('Surface (µm²)');
+yh=ylabel('Conductance (Ohm^-^1)');
+    set([xh,yh],...
+          'fontweight','bold',...
+          'fontsize',20,...
+          'color',[0,0,0]);;
+    set(gca,...
+          'linewidth',2,...
+          'xcolor',[0,0,0],...
+          'fontsize',18,...
+          'fontname','arial');
 
-titre=strcat('Conductance in function of the surface with ',forceox);
+titre=strcat('Conductance / surface, ',forceox);
 title(titre);
 
 end

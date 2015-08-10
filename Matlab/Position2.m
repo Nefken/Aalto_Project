@@ -28,10 +28,19 @@ if (test==13)
         set(p(3),'Color','Green');
         set(p(4),'Color','Blue');
     end
-    title('Resistance in function of surface for position with 10 min of Plasma at 300K');
+    title('Resistance / surface for several position, 10 min of Plasma');
     legend('Bottom','Middle','Left', 'Right');
-    xlabel('Surface area of the junction (µm²)');
-    ylabel('Resistance (Omh)');
+    xh=xlabel('Surface area of the junction (µm²)');
+    yh=ylabel('Resistance (Omh)');
+        set([xh,yh],...
+          'fontweight','bold',...
+          'fontsize',20,...
+          'color',[0,0,0]);;
+    set(gca,...
+          'linewidth',2,...
+          'xcolor',[0,0,0],...
+          'fontsize',18,...
+          'fontname','arial')
     axis([-0 2.5 -10 300]);
     
 elseif(test==14)
@@ -52,7 +61,7 @@ elseif(test==14)
     for j=1:5
         for k=1:4
             hold on
-            p(k)=plot(s,R(k,:,j),'.');
+            p(k)=plot(s,R(k,:,j),'.','MarkerSize',20);
         end
         set(p(1),'Color','Black');
         set(p(2),'Color','Red');
