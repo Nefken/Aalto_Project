@@ -1,6 +1,6 @@
 function[]=Time(test)
 
-t=[2.5 5 10 20];        % variable Temps d'ecthing
+t=[2.5 5];        % variable Temps d'ecthing
 
 % Init du dossier où sont les dossiers de data 
 Folder=('/home/nicolas/Documents/School-Pro/Aalto_Project/Mesures/');
@@ -39,12 +39,12 @@ for i=1:length(test);
     for j=1:5
         for k=1:4       % Boucle sur les surfaces => Y en a toujours 4 !
             hold on
-            p(k)=plot(t,R(2:5,k,j),'.'); % plot de tous les test (et pas Rclean) pour une surface et une dose donnée
+            p(k)=plot(t,R(2:3,k,j),'.','MarkerSize',22); % plot de tous les test (et pas Rclean) pour une surface et une dose donnée
         end
         set(p(1),'Color','Black');      % Couleur surface 1      
         set(p(2),'Color','Red');
-        set(p(3),'Color','Green');
-        set(p(4),'Color','Blue');
+         set(p(3),'Color','Green');
+         set(p(4),'Color','Blue');
     end
     title('Resistance in function of Etching Duration at 300K');
     legend('0.5 µm²','1 µm²','1.5 µm²','2 µm²');
@@ -59,5 +59,5 @@ for i=1:length(test);
           'xcolor',[0,0,0],...
           'fontsize',18,...
           'fontname','arial')
-    axis([0 25 -10 300]);
+    axis([0 7 -10 300]);
 end

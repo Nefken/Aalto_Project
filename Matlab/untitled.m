@@ -8,7 +8,7 @@ R(R<1)=NaN;
 
 figure(1)
 plot(s,R,'.b');
-axis([0 2.5 0 80]);
+axis([0 2.5 40 80]);
 title('Resistance of the clean contact');
 xh=xlabel('Surface area (µm²)');
 yh=ylabel('Resistance (Ohm)');
