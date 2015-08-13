@@ -5,40 +5,91 @@
         
         \section{Superconductivity}
             During the research project that Grenoble INP \textsc{Phelma} gave me the opportunity to realize during the first year of my master degree, I have studied superconductors with my group which make this study a bit easier for me since I am familiar with some of the concept mentionned here. Let's start with the basics. 
-            Superconductivity is a state of matter which occur mostly at low temperature for several materials. It is a state where the material have an absolute zero resistance, so that current can run without energy losses. It is also a state where the material totally excludes magnetic field and becomes perfectly diamagnetic. These two major properties have a quantum explanation which is the Bardeen-Cooper-Schrieffer(BCS) Theory. Even of this theory does not make unanimity among physicist, since it does not explain everything, it is the most famous at the moment. The qualitative aspect of this theory is quite simple whereas the quantitative involves the second quantization and advanced quantum theories. The eletron within the matter can pair in so-called Cooper pairs which come from an interaction between eletrons an the ion lattice. At low temperature, electron are slow and they tend to attract ions. These ions have a relaxation time to come back to their initial state, but during the time they are in an non-equilibrium state, they create a local positive charge that can attract another electron. This electron is then paired with the previous one. It has the same implusion but an opposite spin according to the BCS Theory. The Cooper pairs, even if formed by two electrons are no longer fermions but bosons so that they follow the Bose-Einstein statistics are form a condensate within the matter. Then, the electrons that are not coupled follow a different density of states where there are two pikes at the distance of $\Delta$, around the energy of the condensate E$_0$ : This is the so-called superconductor gap. Theoretically, the pikes are infinite for a temperature of 0K.
             
-        \section{NIS Junctions}
+            Superconductivity is a state of matter which occur mostly at low temperature for several materials. It is a state where the material have an absolute zero resistance, so that current can run without energy losses. It is also a state where the material totally excludes magnetic field and becomes perfectly diamagnetic\cite{Tinkham}. These two major properties have a quantum explanation which is the Bardeen-Cooper-Schrieffer(BCS) Theory\cite{BCS}. The qualitative aspect of this theory is quite simple whereas the quantitative involves the second quantization and advanced quantum theories. 
             
+            The electron within the matter can pair in so-called Cooper pairs which come from an interaction between eletrons an the ion lattice. At low temperature, electron are slow and they tend to attract ions. These ions have a relaxation time to come back to their initial state, but during the time they are in an non-equilibrium state, they create a local positive charge that can attract another electron. This electron is then paired with the previous one. It has the same implusion but an opposite spin according to the BCS Theory. The Cooper pairs, even if formed by two electrons are no longer fermions but bosons so that they follow the Bose-Einstein statistics are form a condensate within the matter.
+            
+            Then, the electrons that are not coupled follow a different density of states where there are two pikes at the distance of $\Delta$, around the energy of the condensate $E_F$ : This is the so-called superconductor gap.
+            
+        \section[NIS Junction]{Normal Metal-Insulator-Superconductor Junction}
         
-        \cite{NIS_thermo}
+            In the case of a Normal Metal-Insulator-Superconductor (NIS) Junction, we make a contact between different density of electronic states, as shown in Fig. \ref{DOSNIS0}. From this Figure, we can understand what happens with these junctions when we apply a voltage. Applying a voltage will translate these densities of states. While $|eV|<\Delta$, the electron cannot tunnel through the insulator, but as soon as $eV=\Delta$, they can start to tunnel in one direction or the other as shown in Fig. \ref{DOSNIS+} and Fig.\ref{DOSNIS-}. 
         
-        \section{Dilution cryostat}
-        
-        
-        
-        %\section{Nanofils semiconducteurs}
-        %La physique des nanofils est encore différente de celle des jonctions précédentes. En effet, le projet est basé sur l'utilisation de nanofils d'InAs, qui est semiconducteur. Cependant, celui-ci l'équipe de Copenhague le fait croître epitaxialement à de l'aluminium. Il subit ainsi une supraconductivité de proximité induite par celui-ci. C'est ce phénomène que l'on se propose d'étudier.
-        
-        %\section{Pompage électronique}
-            %A partir des coulomb diamonds, haute fréquence, observation d'un courant d'un seul électron
-            \begin{figure}
-                \centering
-                \begin{tikzpicture}[scale=1.2]
-                \draw [->] (0,0)--(10,0);
-                \draw (10,0) node[below] {$V_{g}$};
-                \draw [->] (0,-3)--(0,3);
-                \draw (0,3)node[left]{$V_{bias}$};
-                \draw (0,1)--(1,2)--(2,1)--(3,2)--(4,1)--(5,2)--(6,1)--(7,2)--(8,1)--(9,2);
-                \draw (0,-1)--(1,-2)--(2,-1)--(3,-2)--(4,-1)--(5,-2)--(6,-1)--(7,-2)--(8,-1)--(9,-2);
-                \draw [dashed] (0,-1)--(2,1)--(4,-1)--(6,1)--(8,-1);
-                \draw [dashed] (0,1)--(2,-1)--(4,1)--(6,-1)--(8,1);
-                
-                \draw (3,1)node{$n=0$};
-                \draw (5,1)node{$n=1$};
-                \draw (7,1)node{$n=2$};
-                \draw (1,1)node{$n=-1$};
+        \begin{figure}
+        \centering
+            \begin{subfigure}[t]{0.30\textwidth}
+            \centering
+            \begin{tikzpicture}[scale=0.5]
+                \draw [domain=0.2:3] plot(\x,{1+1/\x})--++(-4,0);
+                \draw [pattern=north east lines, pattern color=black] [domain=0.2:3] plot(\x,{-1-1/\x})--++(-3.9,0)--++(0,-4.66)--++(1.2,0);
+                \draw [color=white,thick](-0.8,-6)--(1,-6);
+                \fill (-1,6)--(-0.8,6)--(-0.8,-6)--(-1,-6)--cycle;
+                \draw [pattern=north east lines, pattern color=black] (-4,-6) rectangle (-1,0);
+                \draw [color=white,thick] (-1,-6)--(-4,-6)--(-4,0);
+                \draw [<->] (1,0)--(1,1.33)node[midway,right]{$\Delta$};
+                \draw (-4,0)--(-1,0);
+                \draw [dashed](-0.8,0)--(3,0);
+                \draw (3,0)node[right]{$E_F$};
+                \draw (-2.5,6.5)node{N};
+                \draw (-0.9,6.5)node{I};
+                \draw (0.5,6.5)node{S};
                 \end{tikzpicture}
-                
-            \caption{Blocage de coulomb dans un supraconducteur et principe du pompage d'électrons}
-            \end{figure}
-            
+                \caption{Density of States at\\$V_{bias}=0$}
+                \label{DOSNIS0}
+                \end{subfigure}
+                ~
+                \begin{subfigure}[t]{0.30\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.5]
+                \draw [domain=0.2:3] plot(\x,{1+1/\x})--++(-4,0);
+               \draw [pattern=north east lines, pattern color=black] [domain=0.2:3] plot(\x,{-1-1/\x})--++(-3.9,0)--++(0,-4.66)--++(1.2,0);
+                \draw [color=white,thick](-0.8,-6)--(1,-6);
+                \fill (-1,6)--(-0.8,6)--(-0.8,-6)--(-1,-6)--cycle;
+                \draw [pattern=north east lines, pattern color=black] (-4,-6) rectangle (-1,2.3);
+                \draw [color=white,thick] (-1,-6)--(-4,-6)--(-4,2.3);
+                \draw [<->](-4.1,0)--(-4.1,2.3)node[midway,left]{$V_{bias}$};
+                \draw [->] (-0.8,1.9) arc (90:45:1) node[near end,above]{$e^-$};
+                \draw [dashed](-0.8,0)--(3,0);
+                \draw (-2.5,6.5)node{N};
+                \draw (-0.9,6.5)node{I};
+                \draw (0.5,6.5)node{S};
+                \end{tikzpicture}
+                \caption{Density of States at\\$eV_{bias}>\Delta$}
+                \label{DOSNIS+}
+                \end{subfigure}
+                ~
+                \begin{subfigure}[t]{0.30\textwidth}
+                \centering
+                \begin{tikzpicture}[scale=0.5]
+                \draw [domain=0.2:3] plot(\x,{1+1/\x})--++(-4,0);
+               \draw [pattern=north east lines, pattern color=black] [domain=0.2:3] plot(\x,{-1-1/\x})--++(-3.9,0)--++(0,-4.66)--++(1.2,0);
+                \draw [color=white,thick](-0.8,-6)--(1,-6);
+                \fill (-1,6)--(-0.8,6)--(-0.8,-6)--(-1,-6)--cycle;
+                \draw [pattern=north east lines, pattern color=black] (-4,-6) rectangle (-1,-2);
+                \draw [color=white,thick] (-1,-6)--(-4,-6)--(-4,-2);
+                \draw [<->](-4.1,0)--(-4.1,-2)node[midway,left]{$V_{bias}$};
+                \draw [->] (-1,-1.5) arc(90:130:1)node[near end, above]{$e^-$};
+                \draw [dashed](-0.8,0)--(3,0);
+                \draw (-2.5,6.5)node{N};
+                \draw (-0.9,6.5)node{I};
+                \draw (0.5,6.5)node{S};
+                \end{tikzpicture}
+                \caption{Density of States at\\$eV_{bias}<-\Delta$}
+                \label{DOSNIS-}
+                \end{subfigure}
+                \caption{Density of states for different $V_{bias}$ for a NIS junction}
+                \label{DOSNIS}
+        \end{figure}
+        
+        
+        
+        \section{Leakage current}
+        
+        The previous explanation was of course the ideal one, at 0K, with a totally perfect sample and so on. In practice, we cannot work at absolute 0K, so thermal agitation will perturbe the whole system : the occupations of the densities of states is not ideal when the temperature goes up. So, there always have some electrons above the Fermi level for the normal metal and above the gap for the superconductor so that there can be some tunneling even when $|eV|<\Delta$.
+        Moreover, the densities of states described before come from a calculus with approximations.
+        
+        \section{Dilution refrigerator}
+        
+        
+        

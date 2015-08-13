@@ -1,5 +1,6 @@
 \documentclass[a4paper,11pt]{report}
 \input{preambule_en}
+%\syntaxonly
 
 \includeonly{
     Intro_en,
@@ -7,10 +8,9 @@
     Chapitre2_en,
     Chapitre3_en,
     Chapitre4_en,
-    Chapitre5_en,
     Conclu_en,
     Annexe_en,
-    %Biblio
+    Biblio
     }
 \begin{document}
 
@@ -21,12 +21,11 @@
 \include{Chapitre2_en}
 \include{Chapitre3_en}
 \include{Chapitre4_en}
-\include{Chapitre5_en}
 \include{Conclu_en}
 \appendix
 \include{Annexe_en}
 
 %\include{Biblio}
-\bibliographystyle{plain}
+\bibliographystyle{unsrt}
 \bibliography{Bibliographyurl}
 \end{document}
