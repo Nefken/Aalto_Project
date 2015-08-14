@@ -1,15 +1,15 @@
-\chapter{Clean Room methods}
+\chapter{Experimental methods}
 \label{Chap2}
 
-    In order to make the structure with the nanowires, we need to learn more about the different methods available in clean room. Moreover, we will make tests before starting with the nanowires that will help us to master the devices. I will describe here only the useful devices and methods for our process.
+    In order to make the NIS structures, we need to learn more about the different methods available in clean room. Then, we will be able to realize the structures which we be useful to characterize to help the process for the nanowires. I will describe here only the useful devices and methods for our process. In the last part, I talk about the dilution cryostat which I used to cool down some samples.
     
     \section{Resists}
         
-        The resists are the central point of the fabrication, without them we would not be able to design the pattern we want and without pattern, no structure.
+        The resists are the starting point of the fabrication, without them we would not be able to design the pattern we want and without pattern, no structure.
         
         \subsection{From theory...}
         
-            The resists we use consists of polymer materials : Polymethyl Methacrilate (PMMA) (Fig. \ref{PMMA}) and Methyl Methacrilate (MMA).
+            The resists we use consists of polymer materials : Polymethyl Methacrilate (PMMA) and Methyl Methacrilate (MMA) (Fig. \ref{PMMA}). PMMA is a polymer made out of MMA.
             
             \begin{figure}[H]
             \centering
@@ -35,13 +35,13 @@
                 \caption{Spinner}
             \end{figure}
             
-            The resists we use are sensitive to electrons, what we will do next is to send high energy electron onto them (See \ref{explicationebl}) which will imply structural modifications. The electron break the polymer into smaller pieces, which make the exposed resist more soluble in Methyl IsoButyl Ketone (MIBK) (See \ref{development}).
+            The resists we use are sensitive to electrons, what we will do next is to send high energy electrons onto them (See \ref{explicationebl}) which will imply structural modifications. The electron break the polymer into smaller pieces, which make the exposed resist more soluble in Methyl IsoButyl Ketone (MIBK) (See \ref{development}).
             
               Other type of resists exists, especially some resists damaged by light (photoresits), which are mostly used for semiconductors-based structures.
                           
         \subsection{...To practical}
         
-            Practically, we use this two types of resists because they do not react the same way to exposure and development. First, we want a quite thick layer of MMA. Since the spinner create a fixed thickness, we repeat the proces until having the thickness we want, which means four times. Then we want a quite thin layer of PMMA, for this, only one spinning is good. When we have to bake the resists with a hot plate to make them solid instead of liquid. The resists have a data sheet where all necessary information is provided including optimal temperatures and baking durations. We finally obtain this (Fig. \ref{resine}) kind of cross-section view.
+            Practically, we use these two types of resists because they do not react the same way to exposure and development. First, we want a quite thick layer of MMA. Since the spinner create a fixed thickness, we repeat the proces until having the thickness we want, which means four times. Then we want a quite thin layer of PMMA, for this, only one spinning is good. When we have to bake the resists with a hot plate to make them solid instead of liquid. The resists have a data sheet where all necessary information is provided including optimal temperatures and baking durations. We finally obtain this (Fig. \ref{resine}) kind of cross-section view.
             
             \begin{figure}[H]
                 \centering 
@@ -59,7 +59,7 @@
             
     \section{Electron Beam Lithography and development}
         
-        Important part of the process, it determines either the structures will be as we expect or not, since it really impact the resist.
+        Important part of the process, it determines either the structures will be as we expect or not, since it really impacts the resist.
         
         \subsection{Electron Beam Lithography}
             The Electron Beam Lithographier (EBL) is a device which is used to design the patterns we want to have for our structures within the resist\cite{EBL_theory}. It sends a electron beam onto the resist to damage the bonds within it. The functionnal diagramm (Fig. \ref{EBLschema}) shows the ways the electrons are focused int the EBL. This diagram reminds some optical systems, since the goal is to focus eletrons on relatively small areas. Indeed, the size of the structures is quite small and we want to be the most accurate possible. This is why it is possible to adjust the resolution on the EBL, the accuracy of the beam. The higher the resolution is, the more time it takes to expose the resist, so the best thing is to find a compromise between resolution and time. For example, the only part that requires an good accuracy is the junction, so we have to use a good resolution there, but for the leads it does not matters much, so we choose to go faster. Then, the other adjustable parameter is the exposure dose, which means the amount of electron we send through the resist. The higher the exposure dose is, the more it damages the resist. As for the resolution, we have to find a compromise between enough electrons to make sure the bonds are destroyed within the resist and avoid completely burning it. 
@@ -129,7 +129,7 @@
             
         \subsection{Pattern design}
         
-            The beam is controled by computers, we can create all the designs we want in a software and import them to make the EBL expose the resist. The beam breaks the bonds in the selected zones, as show the Fig. \ref{waferEBL}.
+            The beam is controled by computers, we can create all the designs we want in a software and import them to make the EBL expose the resist. The beam breaks the bonds in the selected zones, as shown in Fig. \ref{waferEBL}.
             
             \begin{figure}[H]
                 \centering
@@ -154,7 +154,7 @@
         
         \subsection{Development}
             \label{development}
-            Development consists in the withdrawal of the exposed resit. It is realized by a succession of chemical reactions. First of all, we have to pierce the PMMA to access the MMA. It is the role of MIBK (Fig. \ref{MIBK}) to dissolve the exposed PMMA and MMA. The MIBK pierces a strait hole in the resist (Fig. \ref{aprèsMIBK}), but it will not be enough for the structures we want to do. Our goal is to make small junction between Al and Cu, if we depose Al or Cu on this wafer, 
+            Development consists in the withdrawal of the exposed resit. It is realized by a succession of chemical reactions. First of all, we have to pierce the PMMA to access the MMA. It is the role of MIBK (Fig. \ref{MIBK}) to dissolve the exposed PMMA and MMA. The MIBK pierces a strait hole in the resist (Fig. \ref{aprèsMIBK}), but it will not be enough for the structures we want to do. 
                        
             \begin{figure}[H]
                 \centering
@@ -163,6 +163,7 @@
                 \label{MIBK}
             \end{figure}
 Our goal is to make small junction between Al and Cu, if we depose Al or Cu on this wafer, they will depose everywhere and we will just have Aluminium covered by Copper, which is not what we want. To manage to make the structure, you have to find a way to not depose metal everywhere. This is the role of the undercuts ans evaporation angles (See \ref{evapangles}). We add a step to the development : we dive the chip in MethyGlycol. MethyGlycol can dissolve MMA even if this one have not been exposed to the electron beam, but do not damage PMMA. This allows us to create a dome, a larger empty area below the PMMA (Fig. \ref{Aprèsdvpt}) named undercut. There, we can see that if we depose metal along a certain angle, they will not necessarily be in contact, this is what we are looking for. The final step of development is to stop the reaction. We dive the sample in Isopropanol which is neutral with our two resist and stops the reaction with MethyGlycol.
+
 Of course, the reactions follow some kind of kinetics and the dissolution will depend on the time we dive the samples into the chemicals. Indeed, electron exposure only ease the dissolution of the resists, this means that we cannot just let the dissolution go and come back when it is over, we have to determine the accurate duration for our application. If it is less important for MIBK (because the difference between dissolution coefficients of exposed and non-exposed resist is large enough), it is very important for MethyGlycol. We have to make sure the undercuts are large enouch for our structures but ensure that PMMA does not collapse.
             
             \begin{figure}[H]
@@ -211,7 +212,10 @@ Of course, the reactions follow some kind of kinetics and the dissolution will d
         
         The evaporator is a tool that allows to deposit a uniform, thin layer of metal inside the undercuts newly developped. A filament is submitted to a huge tension and current, it emits photons that will melt the metal and tear atoms from it. These atoms can move freely in the very low pressure chamber ($P\sim10^{-7}mbar$) : the mean free path is long enough to allows atoms to go everywhere in the chamber especially in our undercuts. The deposition of the atoms is very uniform and there are sensors to measure the thickness of the layer. So, we can set the thickness we want and the device will automatically stop when the thickness reaches this value.
         There is a valve for Oxygen, so that we can oxidize. It is partiularly helpful to realize insulators \textit{in situ}, Al$_2$Ox$_3$ is an insulator and it create an energy barrier, quantically speaking.
-        There is also a Plasma Gun, with Argon valve. The plasma is mostly used to ease the lift-off (See \ref{lift-off}) by weakening the resist. But with the accurate parameters it can also tear atoms for samples, this is a technique called plasma etching, and we will use it quite a lot. The second goal of this project is to characterize this technique in the evaporator here : characterize the plasma and determine its effect on samples (See \ref{Chap3}). We need to know better about plasma etching because the nanowires will come from Copenhaguen and the Aluminium layer will be strongly oxidized, thing that we do not want. We will need to get rid of it one way or another, this is why we try plasma etching.           
+        
+        \subsection{The Plasma gun}
+        
+        There is also a Plasma Gun, with Argon valve. The plasma is mostly used to ease the lift-off (See \ref{lift-off}) by weakening the resist. But with the accurate parameters it can also tear atoms for samples, this is a technique called plasma etching, and we will use it quite a lot. One of the goals of this project is to characterize this technique in the evaporator here : characterize the plasma and determine its effect on samples (See \ref{Chap3}). We need to know better about plasma etching because the nanowires will come from Copenhaguen and the Aluminium layer will be strongly oxidized, thing that we do not want. We will need to get rid of it one way or another, this is why we try plasma etching. We will realize different junctions with different plasma parameters to know better how it behaves.         
             
             \begin{figure}[H]
                 \centering
@@ -223,14 +227,14 @@ Of course, the reactions follow some kind of kinetics and the dissolution will d
             \subsection{Evaporator in action}
             
                 \label{evapangles}
-                The Fig. \ref{evaporation} shows what happens in the evaporation chamber. First, we depose Aluminium with a previously determined angle, then the evaporate Copper, with another angle. Thus, we can see that even it they are in the same undercut, they do not touch each other. To make the junction, we have to have two different undercut that overlap. Like this it is the metal from one undercut which will be in contact with the other metal for the other undercut so that they are in contact in a tiny area and not in the whole pattern. Of course, we can add others steps to this processe like oxidation and plasma.
+                The Fig. \ref{evaporation} shows what happens in the evaporation chamber. First, we depose Aluminium with a previously determined angle, then the evaporate Copper, with another angle. Thus, we can see that even it they are in the same undercut, they do not touch each other. To make the junction, we have to have two different undercut that overlap. Like this it is the metal from one undercut which will be in contact with the other metal for the other undercut so that they are in contact in a tiny area and not in the whole pattern. Of course, we can add others steps to this process like oxidation and plasma.
                 
             \begin{figure}[H]
             \centering
             \begin{tikzpicture}
                 
                 \shadedraw[bottom color=orange,top color=white, draw=orange, fill opacity=0.5,draw opacity=0](5.8,5)--(2.8,0)--(4.5,0)--(7.5,5)-- cycle;
-                \shadedraw[right color=gray!50,left color=white, draw=gray!40, fill opacity=0.5, draw opacity=0](4.2,5)--(7.2,0)--(5.5,0)--(2.5,5)--cycle;   
+                \shadedraw[bottom color=gray!50,top color=white, draw=gray!40, fill opacity=0.5, draw opacity=0](4.2,5)--(7.2,0)--(5.5,0)--(2.5,5)--cycle;   
                 \draw [color=gray!40,->] (4.2,5)--(7.2,0);
                 \draw [color=gray!40,->] (2.5,5)--(5.5,0);  
                 \draw [color=orange,->] (5.8,5)--(2.8,0);
@@ -260,7 +264,7 @@ Of course, the reactions follow some kind of kinetics and the dissolution will d
                 
                 
     \section{Lift-off and Scanning Electron Microscope}
-        Final part of the process where we complete the structures and check if everything was fine.
+        This is the final part of the process where we complete the structures and check if everything was fine.
         \subsection{Lift-off : resist withdrawal}
         \label{lift-off}
         
@@ -284,5 +288,52 @@ Of course, the reactions follow some kind of kinetics and the dissolution will d
                 \caption{SEM image of a sample}
                 \label{SEMexemple}
             \end{figure}
+            
+            
+            \section{Dilution cryostat}
+            
+            The cryostat is not a clean room device, though it is very useful for a low temperature laboratory. Since, I used it to cool down some samples we can consider it is part of the process to get some results and it is definitely an experimental device. First, I will talk about some theory to set the fridge up, then I will talk about the cooling down procedure we follow to reach 50mK.
+            
+            \subsection{Theory about Helium}
+            %phase diagram He3 He4 -> mixture
+            
+            \subsection{Preparation of the cooling}
+            
+            The first thing to do with low temperature measurements is to prepare the sample to get in the fridge. There are sample stage that we use to make measurements. They consist in metallics pads linked to 12 pins where we can bound the pads of our samples. There is a bounder which allows us to link our sample to the pads by bounding a thin Al wire between them (Fig. \ref{bounding}). Once the bounds are done, we can check if the sample is alive with a multimeter. If everything is allright, we can screw the sample stage at the right place on the fridge (Fig. \ref{screwstage}). Then we put the vacuum chamber (IVC) in place, with a indium wire and hexagonal screws to seal it (Fig. \ref{IVCsrew}). 
+            
+            \subsection{Cooling down}
+            The cooling down process in itself is quite long even if there is not much to do but waiting most of the time. The first thing to do, once the sample stage is in place is to pump the IVC and the 1K pot (a small tank which be be thermalized at 1K with pumping over a Helium bath). Then we flush the 1K pot with Helium, to make sure there is no more air inside it. Once the pressure in the IVC is low, we can add some helium which will be the exchange gas. Then, we can put the IVC in liquid nitrogen for 30 minutes to start the cool down (Fig. \ref{nitrogen}). Then, we rapidly switch the nitrogen tank to put the fridge in the helium dewar after having depressurized it before. We set up the condensing and the still lines and pump them to avoid air, because air it would freeze. We also pump the trap, which is a part used to clean gases by nitrogen and carbon, with helium several times to remove air from it. Then, we just have to pump IVC and wait that the fridge thermalize at 4K, which is quite long (Fig. \ref{Setup4K}). Finally, we have to pump the IVC for a long time. We take advantage of this to also pump the condensing and still lines.
+            
+            After having waited enough, we stop pumping the IVC and we will start to condense. The pressure in the IVC is very low, we stop pumping it and remove the line. We open the 1K pot valves to put some Helium in and pump over it to cool it down to 1K. Since Helium is superfluid at this temperature, we would notice it there was any leak, because it could go everywhere. We put the trap in liquid nitrogen, so that we can flush the condensing and the still lines with mixture. The mixture goes from the pump to the lines through the trap and back to the pump, so it cleans the gas inside the lines : if there was still some air for example. We flush three times to divide the amount of impurities by 10$^8$ (10$^2$ each time). Once the lines are clean, we start to send the mixture to the cryostat through the still line. The still pump contains some mixture, but the tank contains a much larger amount, so we have to open the tank valves to take the mixture from here too. Then we wait until the tak is empty. Once it is empty, and that the temperature is low, we can start to circulate : we close the tank valve and  create a loop for the mixture (See Fig.\ref{loopmixture}), so that it is always moving and cools down the fridge.
+            
+            \begin{figure}
+                \centering
+                \begin{tikzpicture}
+                \draw (0,0)--(2,0)--(2,2)--(0,2)--cycle;
+                \draw [<-,thick] (1.5,1) arc(0:340:0.5);
+                \draw (1,1.75)node{Still Pump};
+                \draw [->,thick](1,2)--(1,4)--(4,4)--(4,3);
+                \draw [->,thick](4.5,3)--(4.5,4)--(8,4)node[midway,above]{Condensing line}--(8,3);
+                \draw (4.25,3)node[below]{Trap};
+                \draw (3.5,3)--(5,3)--(5,2.5)--(3.5,2.5)--cycle; 
+                \draw (7,3)--(9,3)--(9,2)--(7,2)--cycle;
+                \draw (8,2.5)node{Condenser};
+                \draw [->] (8,2)--(8,1);
+                \draw (7,1)--(9,1)--(9,0)--(7,0)--cycle;
+                \draw (8,0.5)node{Still};
+                \draw [->,thick] (8,0)--(8,-1)--(1,-1)node[midway, above]{Still line}--(1,0);
+                \draw [dotted, thin] (6.5,-0.5)--(6.5,3.5)--(9.5,3.5)--(9.5,-0.5)--cycle;
+                \draw (7.1,1.5)node{Fridge}; 
+                \draw [color=white](-0.5,1)--(-0.5,1.01);
+                \end{tikzpicture}
+                \caption{Circulation diagram}
+                \label{loopmixture}
+            \end{figure}
+            
+            \subsection{Warming up}
+            
+            Warming up the fridge is quite easy, first we have to stop the circulation of the mixture by closing the trap in and start to pump it from both still and condensing lines to the tank, so we open the tank and still valves. The mixture is liquid so it is difficult to pump it in this state. To ease the pumping, we will heat up to evaporate the mixture. For this, there are two lines where we can apply some voltage, which will go through thermoresistor and heat the area and then the mixture. Since the mixture is pump with the still pump, we have to be careful that the pressure does not exceed 1 mbar, or it could damage the pump. To avoid huge augmentation of the pressure we increase slowly the applied voltage, especially around 1.3K when the mixture starts to boil. Of course, we can control the temperature through Matlab, like we did for the cool down. The pressure increases while the mixture is evaporated. It can take one hour until the mixture is totally pumped out.
+            
+            Once it is the case, the temperature increase rapidly and the pressure goes down. Here, we wait five minutes to be sure all the mixture went out. Then, we close all the valves of the condensing line and the still line, we keep pumping the mixture to the tank, finally, we close the tank and remove the fridge from the dewar. Here, the fridge just needs to thermalize at the room temperature, we let it like that for a while before removing the sample and getting the fridge ready for the next cooling.
             
             
