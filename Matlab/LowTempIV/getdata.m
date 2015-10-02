@@ -10,15 +10,15 @@ EstTemp='50mK';
 Type='leakage';
 number='1';
 begin=5;
-stop=55;
-shift=0.2e-3;
+stop=65;
+shift=0.0e-3;
 shifty=-0.0e-9;
-titrefig='';
+titrefig='I-V Curve of NIS junction (Al/Ox 2min/2mbar /Cu) with plasma etching at T=150mK';
 
 
 %% IF LARGE
 if strcmp(Type,'large')
-    namefile=strcat('/home/nicolas/Documents/School-Pro/Aalto_Project/Mesures/LowTempMeas/',Folder,'/',Sample,EstTemp,'-',Type,'_',number,'.TXT');
+    namefile=strcat('/home/nicolas/Documents/School-Pro/Aalto_Project/Measures/LowTempMeas/',Folder,'/',Sample,EstTemp,'-',Type,'_',number,'.TXT');
     
     fichier=fopen(namefile);
     if fichier==-1
@@ -78,14 +78,14 @@ IGain=1e-7;
           'fontname','arial');
     title(titrefig);
     legend('Measures', 'Linear Fit');
-    print(figname,'-dpng','-r0');
+    %print(figname,'-dpng','-r0');
     fclose(fichier);
     
     %% IF LEAK
     
 elseif strcmp(Type,'leakage')
     
-    namefilelarge=strcat('/home/nicolas/Documents/School-Pro/Aalto_Project/Mesures/LowTempMeas/',Folder,'/',Sample,EstTemp,'-','large','_',number,'.TXT');
+    namefilelarge=strcat('/home/nicolas/Documents/School-Pro/Aalto_Project/Measures/LowTempMeas/',Folder,'/',Sample,EstTemp,'-','large','_',number,'.TXT');
     
     fichier=fopen(namefilelarge);
     if fichier==-1
@@ -97,7 +97,7 @@ elseif strcmp(Type,'leakage')
 %     Npts=fscanf(fichier,'%f',1);
 %     VGain=fscanf(fichier,'%f',1);
 %     IGain=fscanf(fichier,'%f',1);
-    
+    Npts=500;
     A=zeros(4,Npts);
     A=fscanf(fichier,'%f',size(A));
     VGain=20/5000;
@@ -107,7 +107,7 @@ elseif strcmp(Type,'leakage')
     p=polyfit(A(1,:),A(2,:),1);
     Rlarge=1/p(1);
        
-    namefile=strcat('/home/nicolas/Documents/School-Pro/Aalto_Project/Mesures/LowTempMeas/',Folder,'/',Sample,EstTemp,'-',Type,'_',number,'.TXT');
+    namefile=strcat('/home/nicolas/Documents/School-Pro/Aalto_Project/Measures/LowTempMeas/',Folder,'/',Sample,EstTemp,'-',Type,'_',number,'.TXT');
     
     fichier=fopen(namefile);
     if fichier==-1
@@ -119,11 +119,10 @@ elseif strcmp(Type,'leakage')
 %     Npts1=fscanf(fichier,'%f',1);
 %     VGain1=fscanf(fichier,'%f',1);
 %     IGain1=fscanf(fichier,'%f',1);
-    
+    VGain1=20/5000;
+    IGain1=1e-11;
     A=zeros(4,500);
     A=fscanf(fichier,'%f',size(A));
-    VGain=20/5000;
-    IGain=1e-9;
     A(1,:)=VGain1.*A(1,:);
     A(2,:)=IGain1.*A(2,:);
     A(1,:)=shift+A(1,:);
@@ -169,7 +168,7 @@ elseif strcmp(Type,'leakage')
           'color',[0,0,0]);
     title(titrefig);
     legend('Measures', 'Linear Fit');
-    print(figname,'-dpng','-r0');
+    %print(figname,'-dpng','-r0');
     fclose(fichier);
     
 elseif (Type=='all')

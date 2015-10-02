@@ -2,30 +2,56 @@
 \input{preambule_en}
 %\syntaxonly
 
-\includeonly{
-    Intro_en,
-    Chapitre1_en,
-    Chapitre2_en,
-    Chapitre3_en,
-    Chapitre4_en,
-    Conclu_en,
-    Annexe_en,
-    Biblio
-    }
+% \includeonly{
+%     Intro_en,
+%     Chapitre1_en,
+%     Chapitre2_en,
+%     Chapitre3_en,
+%     Chapitre4_en,
+%     Conclu_en,
+%     Annexe_en,
+%     }
 \begin{document}
-
 \input{Titre_en}
-\tableofcontents
-\include{Intro_en}
-\include{Chapitre1_en}
-\include{Chapitre2_en}
-\include{Chapitre3_en}
-\include{Chapitre4_en}
-\include{Conclu_en}
-\appendix
-\include{Annexe_en}
+\input{Aknowledgments}
 
-%\include{Biblio}
+\tableofcontents
+\thispagestyle{empty}
+\setcounter{page}{0}
+\input{Glossary}
+
+\listoffigures
+\addcontentsline{toc}{section}{List Of Figures}
+
+\input{Intro_en}
+\input{Chapitre1_en}
+\input{Chapitre2_en}
+\input{Chapitre3_en}
+\input{Chapitre4_en}
+\input{Conclu_en}
+
 \bibliographystyle{unsrt}
-\bibliography{Bibliographyurl}
+\bibliography{Bibliography}
+\appendix
+\input{Annexe_en}
+\input{abstract}
+%
+% \section*{Abstract}
+%
+% \begin{Large}
+% \textbf{Fabrication and measurements of Normal Metal - Insulator - Superconductor junctions to characterize plasma Etching}
+% \end{Large}
+%
+% This intership involves the fabrication of Normal Metal - Insulator - Superconductor junctions, in cleanroom, and measurements on these samples in order to characterize \textit{in situ} plasma etching of Aluminium Oxide. The goal is to give access to an etching method that can be performed \textit{in situ} to get rid of an unwanted layer of matter (Native Oxide, protecting layer...). Thus, a fabrication process was put in place in cleanroom in order to make the structures to measure. This process relies on several cleanroom methods, but particularly on the evaporator that allows metal deposition and plasma etching. The measurements done are mostly resistance and current-voltage measurements both at room and low temperature, reached with a dilution cryostat. The reference samples consists in simple NIS junctions, without plasma etching shows results expected by theory : surface dependance of resistance, tunnel and leakage current... Results and conclusions about plasma etching were bothered by some parameters modification (Oxygen cleaning of the plasma gun). Yet, it is interesting to notice that plasma etching in a valide etching method since it can etch Aluminium Oxide, that is isotropic on all the sample stage surface and that is does not imply any damages in the junctions. This internship could determine several key data about plasma etching in the evaporator and help researcher with a new and characterized method to etch.
+%
+%
+% \section*{Résumé}
+%
+% \begin{Large}
+%     \textbf{Réalisation et mesure de jonctions Metal - Isolant - Supraconducteur pour la caractérisation de la gravure par plasma}
+% \end{Large}
+%
+% Ce stage met en jeu la fabrication en salle blanche de jonctions Metal - Isolant - Supraconducteur, puis la réalisation de mesures sur ces échantillons en vue de la caractérisation de la gravure par plasma \textit{in situ} d'Oxyde d'Aluminium. Le but est ainsi de permettre le développement d'une méthode de gravure permettant de retirer \textit{in situ} une couche de matière non souhaitée (Oxyde natif, couche protectrice...). Ainsi, un processus de fabrication a été mis en place afin de réaliser les structures à mesurer, incluant, ou non (échantillons référence), la gravure par plasma. Ce processus s'appuie sur les différentes techniques de salle blanche disponibles, en particulier l'évaporateur permettant de déposer le metal mais aussi de graver avec le plasma. Les mesures réalisées sont principalement des mesures de résistances et du tracé de caractéristiques courant-tension, à la fois à temperature ambiante et à basse température, atteinte par la biais d'un cryostat à dilution. Les échantillons de référence consistent en de simples jonctions, sans gravure par plasma et montrent un comportement conforme à celui attendu par la théorie : dépendance en surface de la résistance, courant tunnel et courant de fuite à basse température... Les résultats concernant la gravure par plasma ont été perturbés par changement de paramètres (nettoyage par oxygène du pistolet à plasma) au cours du stage. Cependant, il est intéressant de noter que le plasma est capable de graver l'Oxyde d'Aluminium, qu'il est isotrope sur l'ensemble du porte-échantillon, et que les jonctions, ne sont visiblement pas endommagées par la gravure. Ce stage a donc permis la caractérisation de plusieurs paramètres concernant la gravure par plasma au sein de l'evaporateur et aide à la recherche grâce à une technique désormais caractérisée, pour graver.
+%
+
 \end{document}

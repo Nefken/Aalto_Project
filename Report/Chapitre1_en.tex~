@@ -1,26 +1,74 @@
+\pagestyle{fancy}
 \chapter{Theory}
  \label{Chap1}
- 
-    The first thing to do before starting anything is to understand the goal of the project. For that, it is important to study the behaviour of the structures we want to realize and the physics and quantum phenomemon that can occur. In this chapter we will sum up the litterature study that we have done to understand the theory behind the experiments.
+    
+    In this chapter we will describe the principle of superconductivity and equations that rule NIS junctions.   
         
         \section{Superconductivity}
-            During the research project that Grenoble INP \textsc{Phelma} gave me the opportunity to realize during the first year of my master degree, I have studied superconductors with my group which make this study a bit easier for me since I am familiar with some of the concept mentionned here. Let's start with the basics. 
+           
+            Superconductivity is a state of matter which occur at low temperature for several materials. It is a state where the material have an absolute zero resistance, so that current can run without energy losses and where the material totally excludes magnetic field and becomes perfectly diamagnetic\cite{Tinkham}. The theory of superconductivity has been established by Bardeen, Cooper and Schrieffer in 1957, and is known as the BCS Theory\cite{BCS}.
             
-            Superconductivity is a state of matter which occur mostly at low temperature for several materials. It is a state where the material have an absolute zero resistance, so that current can run without energy losses. It is also a state where the material totally excludes magnetic field and becomes perfectly diamagnetic\cite{Tinkham}. These two major properties have a quantum explanation which is the Bardeen-Cooper-Schrieffer(BCS) Theory\cite{BCS}. The qualitative aspect of this theory is quite simple whereas the quantitative involves the second quantization and advanced quantum theories. 
+            The idea of the BCS theory is that electrons can pair in so-called Cooper pairs which come from the interaction between eletrons and the ion lattice, the phonons. At low temperature, electrons are slow and they tend to attract ions. These ions have a relaxation time to come back to their initial state, but during the time they are in an non-equilibrium state, they create a local positive charge (See Fig. \ref{schemaBCS}) that can attract another electron from somewhere else (10$^3$ the ion lattice caracteristic distance) in the matter. This electron is then paired with the previous one. It has the opposite wave vector and an opposite spin according to the BCS Theory. In the superconducting state, the Cooper paires form a condensate at the Fermi energy, and a consequence is the formation of a gap in the density of states (DOS).
             
-            The electron within the matter can pair in so-called Cooper pairs which come from an interaction between eletrons an the ion lattice. At low temperature, electron are slow and they tend to attract ions. These ions have a relaxation time to come back to their initial state, but during the time they are in an non-equilibrium state, they create a local positive charge that can attract another electron. This electron is then paired with the previous one. It has the same implusion but an opposite spin according to the BCS Theory. The Cooper pairs, even if formed by two electrons are no longer fermions but bosons so that they follow the Bose-Einstein statistics are form a condensate within the matter.
+            \begin{figure}
+                \centering
+                \begin{tikzpicture}
+                \draw (0,0)--(3,0)--(5,1)--(7,0)--(10,0);
+                \draw (0,4)--(3,4)--(5,3)--(7,4)--(10,4);
+                \fill (0,0)circle(0.25);
+                \fill (1,0)circle(0.25);
+                \fill (2,0) circle(0.25);
+                \fill (3,0) circle(0.25);
+                \fill (4,0.5) circle(0.25);
+                \fill (5,1) circle(0.25);
+                \fill (6,0.5) circle(0.25);
+                \fill (7,0) circle(0.25);
+                \fill (8,0) circle(0.25);
+                \fill (9,0) circle(0.25);
+                \fill (10,0) circle(0.25);
+                \fill (0,4) circle(0.25);
+                \fill (1,4) circle(0.25);
+                \fill (2,4) circle(0.25);
+                \fill (3,4) circle(0.25);
+                \fill (4,3.5) circle(0.25);
+                \fill (5,3) circle(0.25);
+                \fill (6,3.5) circle(0.25);
+                \fill (7,4) circle(0.25);
+                \fill (8,4) circle(0.25);
+                \fill (9,4) circle(0.25);
+                \fill (10,4) circle(0.25);
+                \draw (5,4)node[above]{Ion lattice};
+                \fill (6.5,2)circle(0.15);
+                \draw [->](6.8,2)--(8,2);
+                \draw (6.5,2)node[below]{$e^-$};
+                \draw [dashed] (5,2)circle(0.55);
+                \draw (5,2) node{$+$};
+                \end{tikzpicture}
+                \caption[Schematics explaining the formation of Cooper pairs]{Schematics explaining the interaction between electrons and the ion lattice. In a superconductor, the positive area attracts another electron from elsewhere in the matter}
+                \label{schemaBCS}
+            \end{figure}
             
-            Then, the electrons that are not coupled follow a different density of states where there are two pikes at the distance of $\Delta$, around the energy of the condensate $E_F$ : This is the so-called superconductor gap.
+            The electronic density of states follows the following rule (Eq. \ref{formuleDOS}), with N$_0$ the normal DOS and $\Delta$ the superconducting gap.
+            \begin{equation}
+            N(E)=\left\{ 
+            \begin{array}{lr}
+            \displaystyle
+                N_0\dfrac{E}{\sqrt{E^2-\Delta^2}} &\text{ if } |E|>\Delta\\
+                0 &\text{ if } |E|<\Delta
+            \end{array}
+            \right.
+            \label{formuleDOS}
+            \end{equation}
             
         \section[NIS Junction]{Normal Metal-Insulator-Superconductor Junction}
         
-            In the case of a Normal Metal-Insulator-Superconductor (NIS) Junction, we make a contact between different density of electronic states, as shown in Fig. \ref{DOSNIS0}. From this Figure, we can understand what happens with these junctions when we apply a voltage. Applying a voltage will translate these densities of states. While $|eV|<\Delta$, the electron cannot tunnel through the insulator, but as soon as $eV=\Delta$, they can start to tunnel in one direction or the other as shown in Fig. \ref{DOSNIS+} and Fig.\ref{DOSNIS-}. 
+            In the case of a Normal Metal-Insulator-Superconductor (NIS) Junction, we make a contact between materials with different density of electronic states, as shown in Fig. \ref{DOSNIS0}. The DOS of a normal metal is constant at the Fermi energy and for a superconductor, it follows the previous equations. Applying a voltage will translate these densities of states. While $|eV|<\Delta$ (subgap regime), electron cannot tunnel through the insulator as there is no states available in the superconductor, but as soon as $|eV|\geqslant\Delta$ (ohmic regime), they can start to tunnel in one direction or the other depending o the sign of the bias voltage as shown in Fig. \ref{DOSNIS+} and Fig.\ref{DOSNIS-}\cite{Giaever}. It has to be noted that in principle the tunneling of a Cooper pair is possible in the region $|eV|<\Delta$, but this process is less probable (second order tunneling) and we will neglect it.
         
         \begin{figure}
         \centering
             \begin{subfigure}[t]{0.30\textwidth}
             \centering
-            \begin{tikzpicture}[scale=0.5]
+            \begin{tikzpicture}[scale=0.49]
                 \draw [domain=0.2:3] plot(\x,{1+1/\x})--++(-4,0);
                 \draw [pattern=north east lines, pattern color=black] [domain=0.2:3] plot(\x,{-1-1/\x})--++(-3.9,0)--++(0,-4.66)--++(1.2,0);
                 \draw [color=white,thick](-0.8,-6)--(1,-6);
@@ -41,7 +89,7 @@
                 ~
                 \begin{subfigure}[t]{0.30\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.5]
+                \begin{tikzpicture}[scale=0.49]
                 \draw [domain=0.2:3] plot(\x,{1+1/\x})--++(-4,0);
                \draw [pattern=north east lines, pattern color=black] [domain=0.2:3] plot(\x,{-1-1/\x})--++(-3.9,0)--++(0,-4.66)--++(1.2,0);
                 \draw [color=white,thick](-0.8,-6)--(1,-6);
@@ -61,7 +109,7 @@
                 ~
                 \begin{subfigure}[t]{0.30\textwidth}
                 \centering
-                \begin{tikzpicture}[scale=0.5]
+                \begin{tikzpicture}[scale=0.49]
                 \draw [domain=0.2:3] plot(\x,{1+1/\x})--++(-4,0);
                \draw [pattern=north east lines, pattern color=black] [domain=0.2:3] plot(\x,{-1-1/\x})--++(-3.9,0)--++(0,-4.66)--++(1.2,0);
                 \draw [color=white,thick](-0.8,-6)--(1,-6);
@@ -82,14 +130,26 @@
                 \label{DOSNIS}
         \end{figure}
         
-        
+        The current that crosses the NIS junctions is where $f$ is the Fermi-Dirac distribution, and $g$ the density of states.
+        \begin{equation}
+            \displaystyle
+            I(V)=\dfrac{1}{2e}\int d\varepsilon g(\varepsilon)[f(\varepsilon-eV)-f(\varepsilon+eV)]
+        \end{equation}
         
         \section{Leakage current}
         
-        The previous explanation was of course the ideal one, at 0K, with a totally perfect sample and so on. In practice, we cannot work at absolute 0K, so thermal agitation will perturbe the whole system : the occupations of the densities of states is not ideal when the temperature goes up. So, there always have some electrons above the Fermi level for the normal metal and above the gap for the superconductor so that there can be some tunneling even when $|eV|<\Delta$.
-        Moreover, the densities of states described before come from a calculus with approximations.
+        In practice, the junctions are not perfect and electron tunneling can be induced by some impurities or by interaction with photon. To take into account these unwanted tunneling processes, we introduce the Dynes density of states \cite{Dynes_DOS}. It is a broadening of the DOS written in the BCS theory with a linewidth parameter $\Gamma$ :
         
-        \section{Dilution refrigerator}
+        \begin{equation}
+            N=Re\left(\dfrac{|E|+i\Gamma}{\sqrt{(E+i\Gamma)^2-\Delta^2}}\right)
+            \label{DynesDOS}
+        \end{equation}        
+        
+        This new DOS induces a small durrent in the subgap regime.So there can be tunneling within the gap since the DOS in not equal to zero, however very limited. The resulting current is called leakage current and shows, among other things, the defaults of the junction. The leakage is defined as the ratio between the resistance in the ohmic regime ($R$) and the resistance in the subgap regime ($R_{leak}$). A junction is generally considered as good if :
+        
+        \[\dfrac{R}{R_{leak}}<10^{-4}\]
+
+
         
         
         
